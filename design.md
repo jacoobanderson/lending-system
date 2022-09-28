@@ -5,6 +5,7 @@ This document describes the design according to the requirements presented in as
 The application uses the model-view-controller (MVC) architectural pattern. The view is passive and gets called from the controller. The view may only read information from the model, not directly change it.
 
 ![class diagram](img/package_diagram.jpg)
+![class diagram](img/class_diagram.png)
 
 ## Detailed Design
 ### Class Diagram
