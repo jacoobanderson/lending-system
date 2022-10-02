@@ -1,12 +1,13 @@
 package model;
 
+import java.util.Random;
+
 /**
  * The type member.
  */
 public class Member {
-  // private String uniqueId;
-  private String firstName;
-  private String lastName;
+  private String uniqueId;
+  private String name;
   private String email;
   private String phoneNumber;
   // private String createdAt;
@@ -14,16 +15,24 @@ public class Member {
   /**
    * Instantiates a new member.
    *
-   * @param firstName   The first name.
+   * @param name   The first name.
    * @param lastName    The last name.
    * @param email       The email.
    * @param phoneNumber The phone number.
    */
-  public Member(String firstName, String lastName, String email, String phoneNumber) {
-    this.firstName = firstName;
-    this.lastName = lastName;
+  public Member(String name, String email, String phoneNumber) {
+    this.name = name;
     this.email = email;
     this.phoneNumber = phoneNumber;
+  }
+
+  /**
+   * Gets the unique id.
+   *
+   * @return The unique id.
+   */
+  public String getUniqueId() {
+    return uniqueId;
   }
 
   /**
@@ -31,35 +40,17 @@ public class Member {
    *
    * @return The first name.
    */
-  public String getFirstName() {
-    return firstName;
+  public String getName() {
+    return name;
   }
 
   /**
    * Sets the first name.
    *
-   * @param firstName The first name.
+   * @param name The first name.
    */
-  public void setFirstName(String firstName) {
-    this.firstName = firstName;
-  }
-
-  /**
-   * Gets the last name.
-   *
-   * @return The last name.
-   */
-  public String getLastName() {
-    return lastName;
-  }
-
-  /**
-   * Sets the last name.
-   *
-   * @param lastName The last name.
-   */
-  public void setLastName(String lastName) {
-    this.lastName = lastName;
+  public void setName(String name) {
+    this.name = name;
   }
 
   /**
@@ -98,8 +89,26 @@ public class Member {
     this.phoneNumber = phoneNumber;
   }
 
-  // public String generateId() {
+  public String generateId() {
+    Random random = new Random();
+    String UpperCaseletters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    String lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
+    String numbers = "0123456789";
+    String id = "";
 
-  // }
+    for (int i = 0; i < 3; i++) {
+      int capitalLetterOrNot = random.nextInt(2);
+      int randomLetter = random.nextInt(26);
+      int randomNumber = random.nextInt(9);
 
+      if (capitalLetterOrNot == 1) {
+        id += UpperCaseletters.charAt(randomLetter);
+      } else {
+        id += lowerCaseLetters.charAt(randomLetter);
+      }
+
+      id += numbers.charAt(randomNumber);
+    }
+    return id;
+  }
 }

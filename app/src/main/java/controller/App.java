@@ -1,5 +1,7 @@
 package controller;
 
+import model.Member;
+
 /**
  * Responsible for staring the application.
  */
@@ -10,6 +12,18 @@ public class App {
    * @param args command line arguments.
    */
   public static void main(String[] args) {
+    model.Member member = new Member("Jacob Andersson", "j00cwa@gmail.com", "phoneNumber");
+    System.out.println(member.generateId());
+    System.out.println(member.generateId());
+    System.out.println(member.generateId());
+    System.out.println(member.generateId());
+    System.out.println(member.generateId());
+    System.out.println(member.generateId());
+    
+    System.out.println(member);
+    System.out.println(member.getName());
+    System.out.println(member.getEmail());
+    System.out.println(member.getPhoneNumber());
     // adapt to start the application in your way
     // model.Simple m = new model.Simple();
     // Simple c = new Simple();
