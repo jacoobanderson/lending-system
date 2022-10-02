@@ -8,7 +8,8 @@ import java.util.Random;
  */
 public class Member {
   private String uniqueId;
-  private String name;
+  private String firstName;
+  private String lastName;
   private String email;
   private String phoneNumber;
   private int createdAtDay;
@@ -18,15 +19,17 @@ public class Member {
   /**
    * Instantiates a new member.
    *
-   * @param name   The first name.
-   * @param lastName    The last name.
+   * @param firstName   The first firstName.
+   * @param lastfirstName    The last firstName.
    * @param email       The email.
    * @param phoneNumber The phone number.
    */
-  public Member(String name, String email, String phoneNumber) {
-    this.name = name;
+  public Member(String firstName, String lastName, String email, String phoneNumber, int createdAtDay) {
+    this.firstName = firstName;
+    this.lastName = lastName;
     this.email = email;
     this.phoneNumber = phoneNumber;
+    this.createdAtDay = createdAtDay;
     this.uniqueId = generateId();
     this.itemList = new ArrayList<Item>();
   }
@@ -41,7 +44,6 @@ public class Member {
       return credits;
   }
 
-
   /**
    * Adds credits.
    *
@@ -49,6 +51,24 @@ public class Member {
    */
   public void addCredits(int credits) {
       this.credits += credits;
+  }
+
+  /**
+   * Gets the day the member was created.
+   *
+   * @return The day.
+   */
+  public int getCreatedAtDay() {
+      return createdAtDay;
+  }
+
+  /**
+   * Sets the day the member was created.
+   *
+   * @return The day.
+   */
+  public void setCreatedAtDay(int createdAtDay) {
+      this.createdAtDay = createdAtDay;
   }
 
   /**
@@ -61,21 +81,39 @@ public class Member {
   }
 
   /**
-   * Gets the first name.
+   * Gets the first first name.
    *
    * @return The first name.
    */
-  public String getName() {
-    return name;
+  public String getFirstName() {
+    return firstName;
   }
 
   /**
    * Sets the first name.
    *
-   * @param name The first name.
+   * @param firstName The first name.
    */
-  public void setName(String name) {
-    this.name = name;
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
+
+  /**
+   * Gets the last name.
+   *
+   * @param firstName The last name.
+   */
+  public String getLastName() {
+      return lastName;
+  }
+
+  /**
+   * Sets the last name.
+   *
+   * @param firstName The last name.
+   */
+  public void setLastName(String lastName) {
+      this.lastName = lastName;
   }
 
   /**
@@ -148,9 +186,9 @@ public class Member {
     return this.itemList;
   }
 
-  public Item findItemByName(String name) {
+  public Item findItemByName(String itemName) {
     for (Item item : this.itemList) {
-      if (item.getName().equals(name)) {
+      if (item.getName().equals(itemName)) {
         return item;
       }
     }

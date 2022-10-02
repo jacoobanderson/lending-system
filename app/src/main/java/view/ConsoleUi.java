@@ -17,6 +17,7 @@ public class ConsoleUi {
     System.out.println("1. Create a member");
     System.out.println("2. Select a specific member");
     System.out.println("3. Show members");
+    System.out.println("4. Advance 1 day");
     return getInput();
   }
 
