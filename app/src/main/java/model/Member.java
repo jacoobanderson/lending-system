@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -10,7 +11,8 @@ public class Member {
   private String name;
   private String email;
   private String phoneNumber;
-  // private String createdAt;
+  private int createdAtDay;
+  private ArrayList<Item> itemList;
 
   /**
    * Instantiates a new member.
@@ -24,6 +26,7 @@ public class Member {
     this.name = name;
     this.email = email;
     this.phoneNumber = phoneNumber;
+    this.uniqueId = generateId();
   }
 
   /**
@@ -89,7 +92,7 @@ public class Member {
     this.phoneNumber = phoneNumber;
   }
 
-  public String generateId() {
+  private String generateId() {
     Random random = new Random();
     String UpperCaseletters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     String lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";

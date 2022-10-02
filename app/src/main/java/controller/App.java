@@ -13,14 +13,8 @@ public class App {
    */
   public static void main(String[] args) {
     model.Member member = new Member("Jacob Andersson", "j00cwa@gmail.com", "phoneNumber");
-    System.out.println(member.generateId());
-    System.out.println(member.generateId());
-    System.out.println(member.generateId());
-    System.out.println(member.generateId());
-    System.out.println(member.generateId());
-    System.out.println(member.generateId());
-    
-    System.out.println(member);
+    System.out.println(member.getUniqueId());
+
     System.out.println(member.getName());
     System.out.println(member.getEmail());
     System.out.println(member.getPhoneNumber());
