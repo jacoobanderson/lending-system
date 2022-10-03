@@ -196,6 +196,7 @@ public class Member {
   }
 
   public void deleteItem(Item item) {
+    // shouldnt delete if the item is in contract?
     this.itemList.remove(item);
   }
 }
