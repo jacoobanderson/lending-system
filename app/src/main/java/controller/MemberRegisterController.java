@@ -1,5 +1,6 @@
 package controller;
 
+import model.Item;
 import model.Member;
 import model.MemberRegister;
 import view.RegisterView;
@@ -7,10 +8,12 @@ import view.RegisterView;
 public class MemberRegisterController {
   private MemberRegister register;
   private RegisterView view;
+  private MemberController memberController;
 
-  public MemberRegisterController(MemberRegister register, RegisterView view) {
+  public MemberRegisterController(MemberRegister register, RegisterView view, MemberController memberController) {
     this.register = register;
     this.view = view;
+    this.memberController = memberController;
   }
 
   public void createMember() {
@@ -24,6 +27,13 @@ public class MemberRegisterController {
   public void showMembersSimple() {
     for (Member member : register.getMembers()) {
       view.printMemberSimple(member.getFirstName(), member.getLastName(), member.getEmail(), member.getCredits(), member.getItems().size());
+    }
+  }
+
+  public void showMembersVerbose() {
+    for (Member member : register.getMembers()) {
+      view.printMemberVerbose(member.getFirstName(), member.getLastName(), member.getEmail(), member.getCredits());
+      memberController.showItems(member);
     }
   }
 

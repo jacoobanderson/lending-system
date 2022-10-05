@@ -33,7 +33,8 @@ public class MainController {
           createMainMenu();
         break;
       case SHOW_VERBOSE_WAY:
-
+          registerController.showMembersVerbose();
+          createMainMenu();
         break;
       case ADVANCE_ONE_DAY:
 
@@ -54,7 +55,8 @@ public class MainController {
 
         break;
       case CREATE_ITEM:
-
+        memberController.createItem(member);
+        createSpecificMemberMenu(member);
         break;
       case SELECT_ITEM:
 

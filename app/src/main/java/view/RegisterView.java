@@ -40,4 +40,11 @@ public class RegisterView {
     System.out.println("Credits: " + credits);
     System.out.println("Number of items: " + numberOfItems + "\n");
   }
+
+  public void printMemberVerbose(String firstName, String lastName, String email, int credits) {
+    System.out.println("Name: " + firstName + " " + lastName);
+    System.out.println("Email: " + email);
+    System.out.println("Credits: " + credits);
+    System.out.println("Items: \n");
+  }
 }
