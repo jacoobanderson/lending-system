@@ -13,7 +13,7 @@ public class App {
    * @param args command line arguments.
    */
   public static void main(String[] args) {
-    model.Member member = new Member("Jacob", "Andersson", "j00cwa@gmail.com", "0763910384", 0);
+    model.Member member = new Member("Jacob", "Andersson", "j00cwa@gmail.com", "0763910384", 0, null);
 
     System.out.println(member.getUniqueId());
     System.out.println(member.getFirstName());

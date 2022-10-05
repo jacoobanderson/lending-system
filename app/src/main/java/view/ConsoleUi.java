@@ -9,16 +9,12 @@ public class ConsoleUi {
     this.scan = new Scanner(System.in, "utf-8");
   }
 
-  public String getInput() {
-    return scan.nextLine();
-  }
-
   public String printMainMenu() {
     System.out.println("1. Create a member");
     System.out.println("2. Select a specific member");
-    System.out.println("3. Show members");
-    System.out.println("4. Advance 1 day");
-    return getInput();
+    System.out.println("3. Show in a simple way");
+    System.out.println("4. Show in a verbose way");
+    System.out.println("5. Advance 1 day");
   }
 
   public String printSpecificMemberMenu() {
@@ -28,14 +24,25 @@ public class ConsoleUi {
     System.out.println("4. Select an item");
     System.out.println("5. Create new contract");
     System.out.println("6. Delete this member");
-    return getInput();
   }
 
-  public String printShowAllMembersMenu() {
-    System.out.println("1. Show in a simple way");
-    System.out.println("2. Show in a verbose way");
-    return getInput();
+  public 
+
+  public enum MainMenuEvent {
+    CREATE_MEMBER,
+    SELECT_SPECIFIC_MEMBER,
+    SHOW_SIMPLE_WAY,
+    SHOW_VERBOSE_WAY,
+    ADVANCE_ONE_DAY
   }
 
+  public enum SpecificMemberEvent {
+    SHOW_INFORMATION,
+    CHANGE_INFORMATION,
+    CREATE_ITEM,
+    SELECT_ITEM,
+    CREATE_CONTRACT,
+    DELETE_MEMBER
+  }
 
 }
