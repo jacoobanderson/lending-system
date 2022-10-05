@@ -1,7 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 /**
  * The type member.
@@ -24,13 +23,13 @@ public class Member {
    * @param email       The email.
    * @param phoneNumber The phone number.
    */
-  public Member(String firstName, String lastName, String email, String phoneNumber, int createdAtDay) {
+  public Member(String firstName, String lastName, String email, String phoneNumber, int createdAtDay, String uniqueId) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
     this.phoneNumber = phoneNumber;
     this.createdAtDay = createdAtDay;
-    this.uniqueId = generateId();
+    this.uniqueId = uniqueId;
     this.itemList = new ArrayList<Item>();
   }
 
@@ -78,6 +77,15 @@ public class Member {
    */
   public String getUniqueId() {
     return uniqueId;
+  }
+
+  /**
+   * Sets the unique id.
+   *
+   * @return The unique id.
+   */
+  public void setUniqueId(String uniqueId) {
+      this.uniqueId = uniqueId;
   }
 
   /**
@@ -150,30 +158,6 @@ public class Member {
    */
   public void setPhoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
-  }
-
-  private String generateId() {
-    Random random = new Random();
-    String UpperCaseletters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    String lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
-    String numbers = "0123456789";
-    String id = "";
-    int idLengthDividedByTwo = 3;
-
-    for (int i = 0; i < idLengthDividedByTwo; i++) {
-      int capitalLetterOrNot = random.nextInt(2);
-      int randomLetter = random.nextInt(26);
-      int randomNumber = random.nextInt(9);
-
-      if (capitalLetterOrNot == 1) {
-        id += UpperCaseletters.charAt(randomLetter);
-      } else {
-        id += lowerCaseLetters.charAt(randomLetter);
-      }
-
-      id += numbers.charAt(randomNumber);
-    }
-    return id;
   }
 
   public void createItem(String category, String name, String description, int createdAtDay, int costPerDay) {
