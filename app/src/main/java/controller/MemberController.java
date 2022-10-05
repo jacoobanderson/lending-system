@@ -29,4 +29,19 @@ public class MemberController {
       view.printMemberItemVerbose(item.getCategory(), item.getName(), item.getDescription(), item.getCostPerDay());
     }
   }
+
+  public void changeFirstName(Member member) {
+    String firstName = view.changeFirstNameQuestion();
+    member.setFirstName(firstName);
+  }
+
+  public void changeLastName(Member member) {
+    String lastName = view.changeLastNameQuestion();
+    member.setLastName(lastName);
+  }
+
+  public void changeEmail(Member member) {
+    String email = view.changeEmailQuestion();
+    member.setEmail(email);
+  }
 }

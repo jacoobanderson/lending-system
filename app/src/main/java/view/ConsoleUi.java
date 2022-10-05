@@ -70,6 +70,34 @@ public class ConsoleUi {
     }
   }
 
+  public ChangeInformationEvent printChangeInformationMenu() {
+    System.out.println("1. Change first name");
+    System.out.println("2. Change last name");
+    System.out.println("3. Change email");
+    System.out.println("To go back to the member menu enter 0.");
+    return getChangeInformationInput();
+  }
+
+  public ChangeInformationEvent getChangeInformationInput() {
+    switch (scan.nextInt()) {
+      case 1:
+        return ChangeInformationEvent.CHANGE_FIRST_NAME;
+      case 2:
+        return ChangeInformationEvent.CHANGE_LAST_NAME;
+      case 3:
+        return ChangeInformationEvent.CHANGE_EMAIL;
+      default:
+        return ChangeInformationEvent.BACK;
+    }
+  }
+
+  public enum ChangeInformationEvent {
+    CHANGE_FIRST_NAME,
+    CHANGE_LAST_NAME,
+    CHANGE_EMAIL,
+    BACK
+  }
+
   public enum MainMenuEvent {
     CREATE_MEMBER,
     SELECT_SPECIFIC_MEMBER,

@@ -49,4 +49,18 @@ public class MemberView {
     System.out.println("Cost per day: " + cost + "\n");
   }
 
+  public String changeFirstNameQuestion() {
+    System.out.println("What would you like to change the first name to?");
+    return scan.nextLine();
+  }
+
+  public String changeLastNameQuestion() {
+    System.out.println("What would you like to change the last name to?");
+    return scan.nextLine();
+  }
+
+  public String changeEmailQuestion() {
+    System.out.println("What would you like to change email to?");
+    return scan.nextLine();
+  }
 }

@@ -52,7 +52,7 @@ public class MainController {
         createSpecificMemberMenu(member);
         break;
       case CHANGE_INFORMATION:
-
+        createChangeMemberInformationMenu(member);
         break;
       case CREATE_ITEM:
         memberController.createItem(member);
@@ -70,6 +70,25 @@ public class MainController {
         break;
       case BACK:
         createMainMenu();
+    }
+  }
+
+  public void createChangeMemberInformationMenu(Member member) {
+    switch (view.printChangeInformationMenu()) {
+      case CHANGE_FIRST_NAME:
+        memberController.changeFirstName(member);
+        createSpecificMemberMenu(member);
+        break;
+      case CHANGE_LAST_NAME:
+        memberController.changeLastName(member);
+        createSpecificMemberMenu(member);
+        break;
+      case CHANGE_EMAIL:
+        memberController.changeEmail(member);
+        createSpecificMemberMenu(member);
+        break;
+      case BACK:
+        createSpecificMemberMenu(member);
     }
   }
 }
