@@ -32,7 +32,7 @@ public class MemberRegisterController {
     return register.findMemberByEmail(email);
   }
 
-  public void showFullMemberInformation(Member member) {
-    view.printMemberFullInformation(member.getUniqueId(), member.getFirstName(), member.getLastName(), member.getEmail(), member.getCredits(), member.getCreatedAtDay());
+  public void deleteMember(Member member) {
+    register.deleteMember(member);
   }
 }

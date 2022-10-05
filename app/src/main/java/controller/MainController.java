@@ -47,7 +47,7 @@ public class MainController {
   public void createSpecificMemberMenu(Member member) {
     switch (view.printSpecificMemberMenu()) {
       case SHOW_INFORMATION:
-        registerController.showFullMemberInformation(member);
+        memberController.showFullMemberInformation(member);
         createSpecificMemberMenu(member);
         break;
       case CHANGE_INFORMATION:
@@ -63,7 +63,8 @@ public class MainController {
 
         break;
       case DELETE_MEMBER:
-
+        registerController.deleteMember(member);
+        createMainMenu();
         break;
       case BACK:
         createMainMenu();

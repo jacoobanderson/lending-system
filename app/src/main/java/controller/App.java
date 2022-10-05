@@ -1,6 +1,7 @@
 package controller;
 import model.MemberRegister;
 import view.ConsoleUi;
+import view.MemberView;
 import view.RegisterView;
 
 /**
@@ -15,7 +16,8 @@ public class App {
   public static void main(String[] args) {
 
     ConsoleUi view = new ConsoleUi();
-    MemberController memberController = new MemberController();
+    MemberView memberView = new MemberView();
+    MemberController memberController = new MemberController(memberView);
     RegisterView registerView = new RegisterView();
     MemberRegister memberRegister = new MemberRegister();
     MemberRegisterController register = new MemberRegisterController(memberRegister, registerView);
