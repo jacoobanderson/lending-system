@@ -35,8 +35,21 @@ public class MemberRegister {
     String id = generateId();
     if (isUnique(email, phoneNumber, id)) {
       Member member = new Member(firstName, lastName, email, phoneNumber, createdAtDay, id);
-      members.add(member);
+      this.members.add(member);
     }
+  }
+
+  public void deleteMember(Member member) {
+    this.members.remove(member);
+  }
+
+  public Member findMemberById(String uniqueId) {
+    for (Member member : members) {
+      if (uniqueId.equals(member.getUniqueId())) {
+        return member;
+      }
+    }
+    return null;
   }
 
   private String generateId() {
