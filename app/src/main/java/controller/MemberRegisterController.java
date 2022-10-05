@@ -26,4 +26,13 @@ public class MemberRegisterController {
       view.printMemberSimple(member.getFirstName(), member.getLastName(), member.getEmail(), member.getCredits(), member.getItems().size());
     }
   }
+
+  public Member selectMember() {
+    String email = view.showMemberEmailQuestion();
+    return register.findMemberByEmail(email);
+  }
+
+  public void showFullMemberInformation(Member member) {
+    view.printMemberFullInformation(member.getUniqueId(), member.getFirstName(), member.getLastName(), member.getEmail(), member.getCredits(), member.getCreatedAtDay());
+  }
 }

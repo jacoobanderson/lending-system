@@ -15,10 +15,11 @@ public class App {
   public static void main(String[] args) {
 
     ConsoleUi view = new ConsoleUi();
+    MemberController memberController = new MemberController();
     RegisterView registerView = new RegisterView();
     MemberRegister memberRegister = new MemberRegister();
     MemberRegisterController register = new MemberRegisterController(memberRegister, registerView);
-    MainController mainController = new MainController(view, register);
+    MainController mainController = new MainController(view, register, memberController);
     mainController.start();
 
 

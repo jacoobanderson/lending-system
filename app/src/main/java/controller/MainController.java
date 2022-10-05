@@ -1,14 +1,17 @@
 package controller;
 
+import model.Member;
 import view.ConsoleUi;
 
 public class MainController {
   private ConsoleUi view;
   private MemberRegisterController registerController;
+  private MemberController memberController;
 
-  public MainController(ConsoleUi view, MemberRegisterController registerController) {
+  public MainController(ConsoleUi view, MemberRegisterController registerController, MemberController memberController) {
     this.view = view;
     this.registerController = registerController;
+    this.memberController = memberController;
   }
 
   public void start() {
@@ -22,7 +25,8 @@ public class MainController {
           createMainMenu();
         break;
       case SELECT_SPECIFIC_MEMBER:
-
+          Member member = registerController.selectMember();
+          createSpecificMemberMenu(member);
         break;
       case SHOW_SIMPLE_WAY:
           registerController.showMembersSimple();
@@ -37,6 +41,32 @@ public class MainController {
       case QUIT:
         view.closeScanner();
         return;
+    }
+  }
+
+  public void createSpecificMemberMenu(Member member) {
+    switch (view.printSpecificMemberMenu()) {
+      case SHOW_INFORMATION:
+        registerController.showFullMemberInformation(member);
+        createSpecificMemberMenu(member);
+        break;
+      case CHANGE_INFORMATION:
+
+        break;
+      case CREATE_ITEM:
+
+        break;
+      case SELECT_ITEM:
+
+        break;
+      case CREATE_CONTRACT:
+
+        break;
+      case DELETE_MEMBER:
+
+        break;
+      case BACK:
+        createMainMenu();
     }
   }
 }

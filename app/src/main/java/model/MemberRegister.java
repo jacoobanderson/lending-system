@@ -52,6 +52,15 @@ public class MemberRegister {
     return null;
   }
 
+  public Member findMemberByEmail(String email) {
+    for (Member member : members) {
+      if (email.equals(member.getEmail())) {
+        return member;
+      }
+    }
+    return null;
+  }
+
   private String generateId() {
     Random random = new Random();
     String UpperCaseletters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";

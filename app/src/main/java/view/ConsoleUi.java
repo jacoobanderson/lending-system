@@ -23,7 +23,7 @@ public class ConsoleUi {
     return getMainMenuInput();
   }
 
-  public void printSpecificMemberMenu() {
+  public SpecificMemberEvent printSpecificMemberMenu() {
     System.out.println("1. Show information");
     System.out.println("2. Change Information");
     System.out.println("3. Create a new item");
@@ -31,6 +31,7 @@ public class ConsoleUi {
     System.out.println("5. Create new contract");
     System.out.println("6. Delete this member");
     System.out.println("To go back to the main menu enter 0.");
+    return getSpecificMemberMenuInput();
   }
 
   public MainMenuEvent getMainMenuInput() {
