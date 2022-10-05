@@ -34,9 +34,9 @@ public class MainController {
       case ADVANCE_ONE_DAY:
 
         break;
-      default:
-
-        break;
+      case QUIT:
+        view.closeScanner();
+        return;
     }
   }
 }

@@ -1,7 +1,4 @@
 package controller;
-
-import model.Item;
-import model.Member;
 import model.MemberRegister;
 import view.ConsoleUi;
 import view.RegisterView;

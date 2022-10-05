@@ -9,12 +9,17 @@ public class ConsoleUi {
     this.scan = new Scanner(System.in, "utf-8");
   }
 
+  public void closeScanner() {
+    scan.close();
+  }
+
   public MainMenuEvent printMainMenu() {
     System.out.println("1. Create a member");
     System.out.println("2. Select a specific member");
     System.out.println("3. Show in a simple way");
     System.out.println("4. Show in a verbose way");
     System.out.println("5. Advance 1 day \n");
+    System.out.println("To exit the application enter 0.");
     return getMainMenuInput();
   }
 
@@ -25,6 +30,7 @@ public class ConsoleUi {
     System.out.println("4. Select an item");
     System.out.println("5. Create new contract");
     System.out.println("6. Delete this member");
+    System.out.println("To go back to the main menu enter 0.");
   }
 
   public MainMenuEvent getMainMenuInput() {
@@ -41,6 +47,25 @@ public class ConsoleUi {
         return MainMenuEvent.ADVANCE_ONE_DAY;
       default:
         return MainMenuEvent.QUIT;
+    }
+  }
+
+  public SpecificMemberEvent getSpecificMemberMenuInput() {
+    switch(scan.nextInt()) {
+      case 1:
+        return SpecificMemberEvent.SHOW_INFORMATION;
+      case 2:
+        return SpecificMemberEvent.CHANGE_INFORMATION;
+      case 3:
+        return SpecificMemberEvent.CREATE_ITEM;
+      case 4:
+        return SpecificMemberEvent.SELECT_ITEM;
+      case 5:
+        return SpecificMemberEvent.CREATE_CONTRACT;
+      case 6:
+        return SpecificMemberEvent.DELETE_MEMBER;
+      default:
+        return SpecificMemberEvent.BACK;
     }
   }
 
