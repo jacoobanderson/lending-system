@@ -22,6 +22,7 @@ public class App {
     MemberRegister memberRegister = new MemberRegister();
     MemberRegisterController register = new MemberRegisterController(memberRegister, registerView, memberController);
     MainController mainController = new MainController(view, register, memberController);
+
     mainController.start();
 
 

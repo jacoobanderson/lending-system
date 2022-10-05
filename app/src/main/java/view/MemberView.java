@@ -36,7 +36,9 @@ public class MemberView {
 
   public int showItemCostQuestion() {
     System.out.println("What's the cost of the item per day?");
-    return scan.nextInt();
+    int input = scan.nextInt();
+    scan.nextLine();
+    return input;
   }
 
   // Add more contract to who etc...
