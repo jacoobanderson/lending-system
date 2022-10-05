@@ -4,6 +4,7 @@ import model.Item;
 import model.Member;
 import model.MemberRegister;
 import view.ConsoleUi;
+import view.RegisterView;
 
 /**
  * Responsible for staring the application.
@@ -17,7 +18,9 @@ public class App {
   public static void main(String[] args) {
 
     ConsoleUi view = new ConsoleUi();
-    MemberRegisterController register = new MemberRegisterController();
+    RegisterView registerView = new RegisterView();
+    MemberRegister memberRegister = new MemberRegister();
+    MemberRegisterController register = new MemberRegisterController(memberRegister, registerView);
     MainController mainController = new MainController(view, register);
     mainController.start();
 

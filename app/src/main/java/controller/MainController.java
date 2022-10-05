@@ -18,13 +18,15 @@ public class MainController {
   public void createMainMenu() {
     switch (view.printMainMenu()) {
       case CREATE_MEMBER:
-          // memberregister
+          registerController.createMember();
+          createMainMenu();
         break;
       case SELECT_SPECIFIC_MEMBER:
 
         break;
       case SHOW_SIMPLE_WAY:
-
+          registerController.showMembersSimple();
+          createMainMenu();
         break;
       case SHOW_VERBOSE_WAY:
 
@@ -33,7 +35,7 @@ public class MainController {
 
         break;
       default:
-        
+
         break;
     }
   }

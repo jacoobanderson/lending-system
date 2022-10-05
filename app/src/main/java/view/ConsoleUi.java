@@ -14,7 +14,7 @@ public class ConsoleUi {
     System.out.println("2. Select a specific member");
     System.out.println("3. Show in a simple way");
     System.out.println("4. Show in a verbose way");
-    System.out.println("5. Advance 1 day");
+    System.out.println("5. Advance 1 day \n");
     return getMainMenuInput();
   }
 
