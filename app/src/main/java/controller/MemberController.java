@@ -57,4 +57,8 @@ public class MemberController {
     int answer = view.selectItemQuestion();
     return items.get(answer - 1);
   }
+
+  public void deleteItem(Item item, Member member) {
+    member.deleteItem(item);
+  }
 }

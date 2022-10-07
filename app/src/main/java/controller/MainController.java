@@ -8,11 +8,13 @@ public class MainController {
   private ConsoleUi view;
   private MemberRegisterController registerController;
   private MemberController memberController;
+  private ItemController itemController;
 
-  public MainController(ConsoleUi view, MemberRegisterController registerController, MemberController memberController) {
+  public MainController(ConsoleUi view, MemberRegisterController registerController, MemberController memberController, ItemController itemController) {
     this.view = view;
     this.registerController = registerController;
     this.memberController = memberController;
+    this.itemController = itemController;
   }
 
   public void start() {
@@ -61,7 +63,7 @@ public class MainController {
         break;
       case SELECT_ITEM:
         Item item = memberController.selectItem(member);
-        System.out.println(item.getName());
+        createSpecificItemMenu(item, member);
         break;
       case CREATE_CONTRACT:
 
@@ -87,6 +89,33 @@ public class MainController {
         break;
       case CHANGE_EMAIL:
         memberController.changeEmail(member);
+        createSpecificMemberMenu(member);
+        break;
+      case BACK:
+        createSpecificMemberMenu(member);
+    }
+  }
+
+  public void createSpecificItemMenu(Item item, Member member) {
+    switch (view.printSpecificItemMenu()) {
+      case CHANGE_NAME:
+        itemController.changeName(item);
+        createSpecificItemMenu(item, member);
+        break;
+      case CHANGE_CATEGORY:
+        itemController.changeCategory(item);
+        createSpecificItemMenu(item, member);
+        break;
+      case CHANGE_DESCRIPTION:
+        itemController.changeDescription(item);
+        createSpecificItemMenu(item, member);
+        break;
+      case CHANGE_COST:
+        itemController.changeCost(item);
+        createSpecificItemMenu(item, member);
+        break;
+      case DELETE_ITEM:
+        memberController.deleteItem(item, member);
         createSpecificMemberMenu(member);
         break;
       case BACK:

@@ -34,6 +34,16 @@ public class ConsoleUi {
     return getSpecificMemberMenuInput();
   }
 
+  public SpecificItemEvent printSpecificItemMenu() {
+    System.out.println("1. Change name");
+    System.out.println("2. Change category");
+    System.out.println("3. Change description");
+    System.out.println("4. Change cost per day");
+    System.out.println("5. Delete this item");
+    System.out.println("To go back to the member menu enter 0.");
+    return getSpecificItemMenuInput();
+  }
+
   public MainMenuEvent getMainMenuInput() {
     switch(scan.nextInt()) {
       case 1:
@@ -67,6 +77,23 @@ public class ConsoleUi {
         return SpecificMemberEvent.DELETE_MEMBER;
       default:
         return SpecificMemberEvent.BACK;
+    }
+  }
+
+  public SpecificItemEvent getSpecificItemMenuInput() {
+    switch(scan.nextInt()) {
+      case 1:
+        return SpecificItemEvent.CHANGE_NAME;
+      case 2:
+        return SpecificItemEvent.CHANGE_CATEGORY;
+      case 3:
+        return SpecificItemEvent.CHANGE_DESCRIPTION;
+      case 4:
+        return SpecificItemEvent.CHANGE_COST;
+      case 5:
+        return SpecificItemEvent.DELETE_ITEM;
+      default:
+        return SpecificItemEvent.BACK;
     }
   }
 
@@ -114,6 +141,15 @@ public class ConsoleUi {
     SELECT_ITEM,
     CREATE_CONTRACT,
     DELETE_MEMBER,
+    BACK
+  }
+
+  public enum SpecificItemEvent {
+    CHANGE_NAME,
+    CHANGE_CATEGORY,
+    CHANGE_DESCRIPTION,
+    CHANGE_COST,
+    DELETE_ITEM,
     BACK
   }
 
