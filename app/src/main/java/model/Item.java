@@ -1,11 +1,14 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Item {
   private String category;
   private String name;
   private String description;
   private int createdAtDay;
   private int costPerDay;
+  private ArrayList<Contract> contracts;
 
   public Item(String category, String name, String description, int createdAtDay, int costPerDay) {
     this.category = category;
@@ -13,6 +16,15 @@ public class Item {
     this.description = description;
     this.createdAtDay = createdAtDay;
     this.costPerDay = costPerDay;
+    this.contracts = new ArrayList<Contract>();
+  }
+
+  public ArrayList<Contract> getContracts() {
+      return contracts;
+  }
+
+  public void addContract(Contract contract) {
+    this.contracts.add(contract);
   }
 
   public String getCategory() {

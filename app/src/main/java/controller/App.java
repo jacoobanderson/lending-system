@@ -18,14 +18,15 @@ public class App {
 
     ConsoleUi view = new ConsoleUi();
 
-    ItemView itemView = new ItemView();
-    ItemController itemController = new ItemController(itemView);
+    
 
     MemberView memberView = new MemberView();
     MemberController memberController = new MemberController(memberView);
 
     RegisterView registerView = new RegisterView();
     MemberRegister memberRegister = new MemberRegister();
+    ItemView itemView = new ItemView();
+    ItemController itemController = new ItemController(itemView, memberRegister);
     MemberRegisterController register = new MemberRegisterController(memberRegister, registerView, memberController);
 
     MainController mainController = new MainController(view, register, memberController, itemController);
