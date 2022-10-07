@@ -52,6 +52,10 @@ public class Member {
       this.credits += credits;
   }
 
+  public void subtractCredits(int credits) {
+    this.credits -= credits;
+  }
+
   /**
    * Gets the day the member was created.
    *
@@ -164,6 +168,10 @@ public class Member {
     Item item = new Item(category, name, description, createdAtDay, costPerDay);
     itemList.add(item);
     addCredits(100);
+  }
+
+  public void addItem(Item item) {
+    itemList.add(item);
   }
 
   public ArrayList<Item> getItems() {
