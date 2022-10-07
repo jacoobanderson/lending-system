@@ -1,5 +1,6 @@
 package controller;
 
+import model.Item;
 import model.Member;
 import view.ConsoleUi;
 
@@ -59,7 +60,8 @@ public class MainController {
         createSpecificMemberMenu(member);
         break;
       case SELECT_ITEM:
-
+        Item item = memberController.selectItem(member);
+        System.out.println(item.getName());
         break;
       case CREATE_CONTRACT:
 

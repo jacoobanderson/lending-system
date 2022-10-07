@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.ArrayList;
+
 import model.Item;
 import model.Member;
 import view.MemberView;
@@ -43,5 +45,16 @@ public class MemberController {
   public void changeEmail(Member member) {
     String email = view.changeEmailQuestion();
     member.setEmail(email);
+  }
+
+  public Item selectItem(Member member) {
+    int index = 1;
+    ArrayList<Item> items = member.getItems();
+    for (Item item : items) {
+      view.printItemNumber((index++));
+      view.printMemberItemVerbose(item.getCategory(), item.getName(), item.getDescription(), item.getCostPerDay());
+    }
+    int answer = view.selectItemQuestion();
+    return items.get(answer - 1);
   }
 }

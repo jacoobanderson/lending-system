@@ -63,4 +63,13 @@ public class MemberView {
     System.out.println("What would you like to change email to?");
     return scan.nextLine();
   }
+
+  public int selectItemQuestion() {
+    System.out.println("Which item do you wish to select?");
+    return scan.nextInt();
+  }
+
+  public void printItemNumber(int number) {
+    System.out.println("Item " + number + ":");
+  }
 }
