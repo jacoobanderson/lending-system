@@ -1,4 +1,4 @@
-package model.Persistance;
+package model.persistance;
 
 import model.Contract;
 import model.Item;

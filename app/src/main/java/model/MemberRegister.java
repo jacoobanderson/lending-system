@@ -2,7 +2,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.Random;
-import model.Persistance.Data;
+import model.persistance.Data;
 
 /**
  * The member register.

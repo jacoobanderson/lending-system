@@ -111,6 +111,7 @@ public class MainController {
         break;
       case BACK:
         createMainMenu();
+        break;
       default:
         break;
     }
@@ -137,6 +138,7 @@ public class MainController {
         break;
       case BACK:
         createSpecificMemberMenu(member);
+        break;
       default:
         break;
     }
@@ -176,6 +178,7 @@ public class MainController {
         break;
       case BACK:
         createSpecificMemberMenu(member);
+        break;
       default:
         break;
     }
