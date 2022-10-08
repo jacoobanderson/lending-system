@@ -10,6 +10,7 @@ public class Item {
   private int costPerDay;
   private boolean availableForLoan;
   private ArrayList<Contract> contracts;
+  private String currentlyLentTo;
 
   public Item(String category, String name, String description, int createdAtDay, int costPerDay, boolean availableForLoan) {
     this.category = category;
@@ -24,7 +25,15 @@ public class Item {
   public boolean getAvailableForLoan() {
     return availableForLoan;
   }
-  
+
+  public void setCurrentlyLentTo(String currentlyLentTo) {
+      this.currentlyLentTo = currentlyLentTo;
+  }
+
+  public String getCurrentlyLentTo() {
+      return currentlyLentTo;
+  }
+
   public boolean getAvailableBetweenDays(int startDay, int endDay) {
     boolean checkEachContract = true;
     for (Contract contract : contracts) {

@@ -38,12 +38,11 @@ public class Time {
   }
 
   public void handleDayChange() {
-    try {
       for (Member member : memberRegister.getMembers()) {
         for (Item item : member.getItems()) {
           for (Contract contract : item.getContracts()) {
             if (contract.getStartDay() == this.day) {
-              itemController.lendItem(item);
+              itemController.lendItem(item, contract.getLenderEmail());
             }
             if (contract.getEndDay() == this.day) {
               itemController.returnItem(item);
@@ -51,9 +50,5 @@ public class Time {
           }
         }
       }
-
-    } catch (Exception e) {
-      System.out.println(e);
-    }
   }
 }

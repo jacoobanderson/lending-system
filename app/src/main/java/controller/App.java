@@ -27,10 +27,9 @@ public class App {
     MemberRegister memberRegister = new MemberRegister();
     ItemController itemController = new ItemController(itemView, memberRegister);
     MemberRegisterController register = new MemberRegisterController(memberRegister, registerView, memberController);
-    
     Time time = new Time(0, memberRegister, itemController, memberController, register);
-    MainController mainController = new MainController(view, register, memberController, itemController, time);
 
+    MainController mainController = new MainController(view, register, memberController, itemController, time);
     mainController.start();
 
 
