@@ -18,12 +18,13 @@ public class Member {
   /**
    * Instantiates a new member.
    *
-   * @param firstName   The first firstName.
-   * @param lastfirstName    The last firstName.
-   * @param email       The email.
-   * @param phoneNumber The phone number.
+   * @param firstName     The first firstName.
+   * @param lastName The last firstName.
+   * @param email         The email.
+   * @param phoneNumber   The phone number.
    */
-  public Member(String firstName, String lastName, String email, String phoneNumber, int createdAtDay, String uniqueId) {
+  public Member(String firstName, String lastName, String email, String phoneNumber, int createdAtDay,
+      String uniqueId) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
@@ -33,23 +34,20 @@ public class Member {
     this.itemList = new ArrayList<Item>();
   }
 
-
   /**
    * Gets the credits.
    *
    * @return The credits.
    */
   public int getCredits() {
-      return credits;
+    return credits;
   }
 
   /**
    * Adds credits.
-   *
-   * @return The credits.
    */
   public void addCredits(int credits) {
-      this.credits += credits;
+    this.credits += credits;
   }
 
   public void subtractCredits(int credits) {
@@ -62,16 +60,14 @@ public class Member {
    * @return The day.
    */
   public int getCreatedAtDay() {
-      return createdAtDay;
+    return createdAtDay;
   }
 
   /**
    * Sets the day the member was created.
-   *
-   * @return The day.
    */
   public void setCreatedAtDay(int createdAtDay) {
-      this.createdAtDay = createdAtDay;
+    this.createdAtDay = createdAtDay;
   }
 
   /**
@@ -85,11 +81,9 @@ public class Member {
 
   /**
    * Sets the unique id.
-   *
-   * @return The unique id.
    */
   public void setUniqueId(String uniqueId) {
-      this.uniqueId = uniqueId;
+    this.uniqueId = uniqueId;
   }
 
   /**
@@ -112,20 +106,18 @@ public class Member {
 
   /**
    * Gets the last name.
-   *
-   * @param firstName The last name.
    */
   public String getLastName() {
-      return lastName;
+    return lastName;
   }
 
   /**
    * Sets the last name.
    *
-   * @param firstName The last name.
+   * @param lastName The last name.
    */
   public void setLastName(String lastName) {
-      this.lastName = lastName;
+    this.lastName = lastName;
   }
 
   /**
@@ -164,20 +156,45 @@ public class Member {
     this.phoneNumber = phoneNumber;
   }
 
+  /**
+   * Creates an item.
+   *
+   * @param category The category.
+   * @param name The name.
+   * @param description The description.
+   * @param createdAtDay The creation day.
+   * @param costPerDay The cost per day.
+   */
   public void createItem(String category, String name, String description, int createdAtDay, int costPerDay) {
     Item item = new Item(category, name, description, createdAtDay, costPerDay, true);
     itemList.add(item);
     addCredits(100);
   }
 
+  /**
+   * Adds an item to the item list.
+   *
+   * @param item The item.
+   */
   public void addItem(Item item) {
     itemList.add(item);
   }
 
+  /**
+   * Gets the items.
+   *
+   * @return The items.
+   */
   public ArrayList<Item> getItems() {
     return this.itemList;
   }
 
+  /**
+   * Finds an item by name.
+   *
+   * @param itemName The name of the item.
+   * @return The item.
+   */
   public Item findItemByName(String itemName) {
     for (Item item : this.itemList) {
       if (item.getName().equals(itemName)) {
@@ -187,11 +204,21 @@ public class Member {
     return null;
   }
 
+  /**
+   * Deletes an item.
+   *
+   * @param item The item.
+   */
   public void deleteItem(Item item) {
-    // shouldnt delete if the item is in contract?
     this.itemList.remove(item);
   }
 
+  /**
+   * Checks if the member has enough credits.
+   *
+   * @param credits The credits.
+   * @return True or false.
+   */
   public boolean hasEnoughCredits(int credits) {
     if (this.credits >= credits) {
       return true;

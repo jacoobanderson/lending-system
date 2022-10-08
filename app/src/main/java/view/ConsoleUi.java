@@ -2,17 +2,31 @@ package view;
 
 import java.util.Scanner;
 
+/**
+ * The console ui.
+ */
 public class ConsoleUi {
   private Scanner scan;
 
+  /**
+   * The constructor.
+   */
   public ConsoleUi() {
     this.scan = new Scanner(System.in, "utf-8");
   }
 
+  /**
+   * Closes the scanner.
+   */
   public void closeScanner() {
     scan.close();
   }
 
+  /**
+   * Prints the main menu.
+   *
+   * @return The input.
+   */
   public MainMenuEvent printMainMenu() {
     System.out.println("1. Create a member");
     System.out.println("2. Select a specific member");
@@ -23,6 +37,11 @@ public class ConsoleUi {
     return getMainMenuInput();
   }
 
+  /**
+   * Prints the specific member menu.
+   *
+   * @return The input.
+   */
   public SpecificMemberEvent printSpecificMemberMenu() {
     System.out.println("1. Show information");
     System.out.println("2. Change Information");
@@ -34,6 +53,11 @@ public class ConsoleUi {
     return getSpecificMemberMenuInput();
   }
 
+  /**
+   * Prints the specific item menu.
+   *
+   * @return The input.
+   */
   public SpecificItemEvent printSpecificItemMenu() {
     System.out.println("1. Change name");
     System.out.println("2. Change category");
@@ -45,8 +69,13 @@ public class ConsoleUi {
     return getSpecificItemMenuInput();
   }
 
+  /**
+   * Gets the main menu input.
+   *
+   * @return The input
+   */
   public MainMenuEvent getMainMenuInput() {
-    switch(scan.nextInt()) {
+    switch (scan.nextInt()) {
       case 1:
         return MainMenuEvent.CREATE_MEMBER;
       case 2:
@@ -62,8 +91,13 @@ public class ConsoleUi {
     }
   }
 
+  /**
+   * Gets the specific member input.
+   *
+   * @return The input.
+   */
   public SpecificMemberEvent getSpecificMemberMenuInput() {
-    switch(scan.nextInt()) {
+    switch (scan.nextInt()) {
       case 1:
         return SpecificMemberEvent.SHOW_INFORMATION;
       case 2:
@@ -81,8 +115,13 @@ public class ConsoleUi {
     }
   }
 
+  /**
+   * Gets the specific item menu input.
+   *
+   * @return The input.
+   */
   public SpecificItemEvent getSpecificItemMenuInput() {
-    switch(scan.nextInt()) {
+    switch (scan.nextInt()) {
       case 1:
         return SpecificItemEvent.CHANGE_NAME;
       case 2:
@@ -100,6 +139,11 @@ public class ConsoleUi {
     }
   }
 
+  /**
+   * Prints the change member menu.
+   *
+   * @return The input.
+   */
   public ChangeInformationEvent printChangeInformationMenu() {
     System.out.println("1. Change first name");
     System.out.println("2. Change last name");
@@ -108,6 +152,11 @@ public class ConsoleUi {
     return getChangeInformationInput();
   }
 
+  /**
+   * Gets the change member information input.
+   *
+   * @return The input.
+   */
   public ChangeInformationEvent getChangeInformationInput() {
     switch (scan.nextInt()) {
       case 1:
@@ -121,6 +170,9 @@ public class ConsoleUi {
     }
   }
 
+  /**
+   * The change information events.
+   */
   public enum ChangeInformationEvent {
     CHANGE_FIRST_NAME,
     CHANGE_LAST_NAME,
@@ -128,6 +180,9 @@ public class ConsoleUi {
     BACK
   }
 
+  /**
+   * The main menu events.
+   */
   public enum MainMenuEvent {
     CREATE_MEMBER,
     SELECT_SPECIFIC_MEMBER,
@@ -137,6 +192,9 @@ public class ConsoleUi {
     QUIT
   }
 
+  /**
+   * The specific member events.
+   */
   public enum SpecificMemberEvent {
     SHOW_INFORMATION,
     CHANGE_INFORMATION,
@@ -147,6 +205,9 @@ public class ConsoleUi {
     BACK
   }
 
+  /**
+   * The specific item events.
+   */
   public enum SpecificItemEvent {
     CHANGE_NAME,
     CHANGE_CATEGORY,

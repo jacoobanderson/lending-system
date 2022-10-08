@@ -1,4 +1,5 @@
 package controller;
+
 import model.MemberRegister;
 import view.ConsoleUi;
 import view.ItemView;
@@ -31,19 +32,5 @@ public class App {
 
     MainController mainController = new MainController(view, register, memberController, itemController, time);
     mainController.start();
-
-
-    // adapt to start the application in your way
-    // model.Simple m = new model.Simple();
-    // Simple c = new Simple();
-    // view.Simple v = new view.Simple();
-
-    // c.doSomethingSimple(m, v);
   }
 }
-
-
-// Controller Next file
-// public void doSomethingSimple(model.Simple m, view.Simple v) {
-//   v.showMessage(m.getMessage());
-// }
