@@ -17,17 +17,17 @@ public class ItemController {
   }
 
   public int getDay() {
-      return day;
+    return day;
   }
 
   public void setDay(int day) {
-      this.day = day;
+    this.day = day;
   }
 
   public void advanceDay() {
     this.day += 1;
   }
-   
+
   public void changeCategory(Item item) {
     String category = view.changeItemCategoryQuestion();
     item.setCategory(category);
@@ -60,17 +60,16 @@ public class ItemController {
 
     int startDay = view.contractStartDayQuestion();
     int endDay = view.contractEndDayQuestion();
+    Contract contract = new Contract(item, startDay, endDay, ownerOfItem.getEmail(), lenderOfItemEmail);
+    int totalCost = contract.getTotalCost();
 
-    if (item.getAvailableBetweenDays(startDay, endDay)) {
-      Contract contract = new Contract(item, startDay, endDay, ownerOfItem.getEmail(), lenderOfItemEmail);
-      transferCredits(lenderOfItem, ownerOfItem, contract.getTotalCost());
+    if (item.getAvailableBetweenDays(startDay, endDay) && (ownerOfItem.hasEnoughCredits(totalCost))) {
+      transferCredits(lenderOfItem, ownerOfItem, totalCost);
       item.addContract(contract);
-  
+
       if (getDay() == startDay) {
         lendItem(item);
       }
-    } else {
-      System.out.println("Item not available");
     }
   }
 

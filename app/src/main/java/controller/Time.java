@@ -12,35 +12,31 @@ public class Time {
   private MemberController memberController;
   private MemberRegisterController memberRegisterController;
 
-  public Time(int day, MemberRegister memberRegister, ItemController itemController, MemberController memberController, MemberRegisterController memberRegisterController) {
+  public Time(int day, MemberRegister memberRegister, ItemController itemController, MemberController memberController,
+      MemberRegisterController memberRegisterController) {
     this.day = day;
     this.memberRegister = memberRegister;
     this.itemController = itemController;
     this.memberController = memberController;
     this.memberRegisterController = memberRegisterController;
   }
-  
+
   public int getDay() {
-      return day;
+    return day;
   }
 
   public void advanceDay(int day) {
-      this.day += day;
+    this.day += day;
   }
 
   public void advanceDay() {
     advanceDay(1);
-    System.out.println(this.day);
-    System.out.println(itemController.getDay());
     itemController.setDay(this.day);
     memberController.setDay(this.day);
     memberRegisterController.setDay(this.day);
     handleDayChange();
-    
   }
 
-
-  // loop through dont remove innstead make unavailable for lending
   public void handleDayChange() {
     try {
       for (Member member : memberRegister.getMembers()) {
@@ -48,17 +44,16 @@ public class Time {
           for (Contract contract : item.getContracts()) {
             if (contract.getStartDay() == this.day) {
               itemController.lendItem(item);
-            } 
+            }
             if (contract.getEndDay() == this.day) {
               itemController.returnItem(item);
             }
           }
         }
       }
-      
+
     } catch (Exception e) {
       System.out.println(e);
     }
-
   }
 }

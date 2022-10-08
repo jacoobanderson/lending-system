@@ -191,4 +191,11 @@ public class Member {
     // shouldnt delete if the item is in contract?
     this.itemList.remove(item);
   }
+
+  public boolean hasEnoughCredits(int credits) {
+    if (this.credits >= credits) {
+      return true;
+    }
+    return false;
+  }
 }
