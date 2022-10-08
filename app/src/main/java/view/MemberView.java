@@ -9,16 +9,18 @@ public class MemberView {
     this.scan = new Scanner(System.in, "utf-8");
   }
 
-  public void printMemberFullInformation(String id, String firstName, String lastName, String email, int credits, int day) {
+  public void printMemberFullInformation(String id, String firstName, String lastName, String email, int credits,
+      int day) {
     System.out.println("ID: " + id);
     System.out.println("Name: " + firstName + " " + lastName);
     System.out.println("Email: " + email);
     System.out.println("Credits: " + credits);
     // ++ items
-    System.out.println("Created at day: " + day  + "\n");
+    System.out.println("Created at day: " + day + "\n");
   }
 
-  // String category, String name, String description, int createdAtDay, int costPerDay
+  // String category, String name, String description, int createdAtDay, int
+  // costPerDay
   public String showItemCategoryQuestion() {
     System.out.println("What's the category of the item? (Tool, Vehicle, Game, Toy, Sport or Other)");
     return scan.nextLine();
@@ -66,7 +68,9 @@ public class MemberView {
 
   public int selectItemQuestion() {
     System.out.println("Which item do you wish to select?");
-    return scan.nextInt();
+    int input = scan.nextInt();
+    scan.nextLine();
+    return input;
   }
 
   public void printItemNumber(int number) {

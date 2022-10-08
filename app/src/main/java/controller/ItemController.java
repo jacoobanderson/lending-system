@@ -61,12 +61,16 @@ public class ItemController {
     int startDay = view.contractStartDayQuestion();
     int endDay = view.contractEndDayQuestion();
 
-    Contract contract = new Contract(item, startDay, endDay, ownerOfItem.getEmail(), lenderOfItemEmail);
-    transferCredits(lenderOfItem, ownerOfItem, contract.getTotalCost());
-    item.addContract(contract);
-
-    if (getDay() == startDay) {
-      lendItem(item);
+    if (item.getAvailableBetweenDays(startDay, endDay)) {
+      Contract contract = new Contract(item, startDay, endDay, ownerOfItem.getEmail(), lenderOfItemEmail);
+      transferCredits(lenderOfItem, ownerOfItem, contract.getTotalCost());
+      item.addContract(contract);
+  
+      if (getDay() == startDay) {
+        lendItem(item);
+      }
+    } else {
+      System.out.println("Item not available");
     }
   }
 

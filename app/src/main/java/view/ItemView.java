@@ -26,7 +26,9 @@ public class ItemView {
 
   public int changeItemCostQuestion() {
     System.out.println("What would you like to change the item cost per day to?");
-    return scan.nextInt();
+    int input = scan.nextInt();
+    scan.nextLine();
+    return input;
   }
 
   public String contractMemberQuestion() {
@@ -36,12 +38,16 @@ public class ItemView {
 
   public int contractStartDayQuestion() {
     System.out.println("What day do you wish the contract to start on?");
-    return scan.nextInt();
+    int input = scan.nextInt();
+    scan.nextLine();
+    return input;
   }
 
   public int contractEndDayQuestion() {
     System.out.println("What day do you wish the contract to end on?");
-    return scan.nextInt();
+    int input = scan.nextInt();
+    scan.nextLine();
+    return input;
   }
 
   public void viewContract(int startDay, int endDay, String lenderEmail) {

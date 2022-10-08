@@ -24,6 +24,16 @@ public class Item {
   public boolean getAvailableForLoan() {
     return availableForLoan;
   }
+  
+  public boolean getAvailableBetweenDays(int startDay, int endDay) {
+    boolean checkEachContract = true;
+    for (Contract contract : contracts) {
+      if ((startDay >= contract.getStartDay() && startDay <= contract.getEndDay()) || (endDay >= contract.getStartDay() && endDay <= contract.getEndDay())) {
+        checkEachContract = false;
+      }
+    }
+    return checkEachContract;
+  }
 
   public void makeItemAvailable() {
     this.availableForLoan = true;
