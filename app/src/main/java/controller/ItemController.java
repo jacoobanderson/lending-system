@@ -48,6 +48,12 @@ public class ItemController {
     item.setCostPerDay(cost);
   }
 
+  public void showContracts(Item item) {
+    for (Contract contract : item.getContracts()) {
+      view.viewContract(contract.getStartDay(), contract.getEndDay(), contract.getLenderEmail());
+    }
+  }
+
   public void establishContract(Item item, Member ownerOfItem) {
     String lenderOfItemEmail = view.contractMemberQuestion();
     Member lenderOfItem = memberRegister.findMemberByEmail(lenderOfItemEmail);

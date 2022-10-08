@@ -43,4 +43,10 @@ public class ItemView {
     System.out.println("What day do you wish the contract to end on?");
     return scan.nextInt();
   }
+
+  public void viewContract(int startDay, int endDay, String lenderEmail) {
+    System.out.println("\nStart day: " + startDay);
+    System.out.println("End day: " + endDay);
+    System.out.println("Lended to (Email): " + lenderEmail + "\n");
+  }
 }

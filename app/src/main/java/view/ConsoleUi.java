@@ -39,7 +39,8 @@ public class ConsoleUi {
     System.out.println("2. Change category");
     System.out.println("3. Change description");
     System.out.println("4. Change cost per day");
-    System.out.println("5. Delete this item");
+    System.out.println("5. View contracts");
+    System.out.println("6. Delete this item");
     System.out.println("To go back to the member menu enter 0.");
     return getSpecificItemMenuInput();
   }
@@ -91,6 +92,8 @@ public class ConsoleUi {
       case 4:
         return SpecificItemEvent.CHANGE_COST;
       case 5:
+        return SpecificItemEvent.VIEW_CONTRACTS;
+      case 6:
         return SpecificItemEvent.DELETE_ITEM;
       default:
         return SpecificItemEvent.BACK;
@@ -149,8 +152,8 @@ public class ConsoleUi {
     CHANGE_CATEGORY,
     CHANGE_DESCRIPTION,
     CHANGE_COST,
+    VIEW_CONTRACTS,
     DELETE_ITEM,
     BACK
   }
-
 }

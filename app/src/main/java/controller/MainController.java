@@ -20,35 +20,40 @@ public class MainController {
   }
 
   public void start() {
-    createMainMenu();
+    try { 
+      createMainMenu();
+    } catch (Exception e) {
+      System.out.println("Something went wrong!");
+      createMainMenu();
+    }
   }
   
   public void createMainMenu() {
-    switch (view.printMainMenu()) {
-      case CREATE_MEMBER:
-          registerController.createMember();
+      switch (view.printMainMenu()) {
+        case CREATE_MEMBER:
+            registerController.createMember();
+            createMainMenu();
+          break;
+        case SELECT_SPECIFIC_MEMBER:
+            Member member = registerController.selectMember();
+            createSpecificMemberMenu(member);
+          break;
+        case SHOW_SIMPLE_WAY:
+            registerController.showMembersSimple();
+            createMainMenu();
+          break;
+        case SHOW_VERBOSE_WAY:
+            registerController.showMembersVerbose();
+            createMainMenu();
+          break;
+        case ADVANCE_ONE_DAY:
+          time.advanceDay();
           createMainMenu();
-        break;
-      case SELECT_SPECIFIC_MEMBER:
-          Member member = registerController.selectMember();
-          createSpecificMemberMenu(member);
-        break;
-      case SHOW_SIMPLE_WAY:
-          registerController.showMembersSimple();
-          createMainMenu();
-        break;
-      case SHOW_VERBOSE_WAY:
-          registerController.showMembersVerbose();
-          createMainMenu();
-        break;
-      case ADVANCE_ONE_DAY:
-        time.advanceDay();
-        createMainMenu();
-        break;
-      case QUIT:
-        view.closeScanner();
-        return;
-    }
+          break;
+        case QUIT:
+          view.closeScanner();
+          return;
+      }
   }
 
   public void createSpecificMemberMenu(Member member) {
@@ -117,6 +122,10 @@ public class MainController {
         break;
       case CHANGE_COST:
         itemController.changeCost(item);
+        createSpecificItemMenu(item, member);
+        break;
+      case VIEW_CONTRACTS:
+        itemController.showContracts(item);
         createSpecificItemMenu(item, member);
         break;
       case DELETE_ITEM:
