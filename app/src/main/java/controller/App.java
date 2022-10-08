@@ -15,21 +15,21 @@ public class App {
    * @param args command line arguments.
    */
   public static void main(String[] args) {
-
+   
     ConsoleUi view = new ConsoleUi();
-
-    
 
     MemberView memberView = new MemberView();
     MemberController memberController = new MemberController(memberView);
 
     RegisterView registerView = new RegisterView();
-    MemberRegister memberRegister = new MemberRegister();
+
     ItemView itemView = new ItemView();
+    MemberRegister memberRegister = new MemberRegister();
     ItemController itemController = new ItemController(itemView, memberRegister);
     MemberRegisterController register = new MemberRegisterController(memberRegister, registerView, memberController);
-
-    MainController mainController = new MainController(view, register, memberController, itemController);
+    
+    Time time = new Time(0, memberRegister, itemController, memberController, register);
+    MainController mainController = new MainController(view, register, memberController, itemController, time);
 
     mainController.start();
 

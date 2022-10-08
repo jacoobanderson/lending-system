@@ -8,6 +8,7 @@ public class MemberRegisterController {
   private MemberRegister register;
   private RegisterView view;
   private MemberController memberController;
+  private int day = 1;
 
   public MemberRegisterController(MemberRegister register, RegisterView view, MemberController memberController) {
     this.register = register;
@@ -15,12 +16,24 @@ public class MemberRegisterController {
     this.memberController = memberController;
   }
 
+  public int getDay() {
+    return day;
+  }
+
+  public void setDay(int day) {
+    this.day = day;
+  }
+
+  public void advanceDay() {
+    this.day += 1;
+  }
+
   public void createMember() {
     String firstName = view.showFirstNameQuestion();
     String lastName = view.showLastNameQuestion();
     String email = view.showEmailQuestion();
     String phoneNumber = view.showPhoneNumberQuestion();
-    register.createMember(firstName, lastName, email, phoneNumber, 0);
+    register.createMember(firstName, lastName, email, phoneNumber, getDay());
   }
 
   public void showMembersSimple() {

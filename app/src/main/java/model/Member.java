@@ -165,7 +165,7 @@ public class Member {
   }
 
   public void createItem(String category, String name, String description, int createdAtDay, int costPerDay) {
-    Item item = new Item(category, name, description, createdAtDay, costPerDay);
+    Item item = new Item(category, name, description, createdAtDay, costPerDay, true);
     itemList.add(item);
     addCredits(100);
   }

@@ -9,12 +9,14 @@ public class MainController {
   private MemberRegisterController registerController;
   private MemberController memberController;
   private ItemController itemController;
+  private Time time;
 
-  public MainController(ConsoleUi view, MemberRegisterController registerController, MemberController memberController, ItemController itemController) {
+  public MainController(ConsoleUi view, MemberRegisterController registerController, MemberController memberController, ItemController itemController, Time time) {
     this.view = view;
     this.registerController = registerController;
     this.memberController = memberController;
     this.itemController = itemController;
+    this.time = time;
   }
 
   public void start() {
@@ -40,7 +42,8 @@ public class MainController {
           createMainMenu();
         break;
       case ADVANCE_ONE_DAY:
-
+        time.advanceDay();
+        createMainMenu();
         break;
       case QUIT:
         view.closeScanner();
@@ -66,7 +69,9 @@ public class MainController {
         createSpecificItemMenu(item, member);
         break;
       case CREATE_CONTRACT:
-
+        Item itemToLend = memberController.selectItem(member);
+        itemController.establishContract(itemToLend, member);
+        createMainMenu();
         break;
       case DELETE_MEMBER:
         registerController.deleteMember(member);

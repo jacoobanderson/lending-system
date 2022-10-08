@@ -8,15 +8,29 @@ public class Item {
   private String description;
   private int createdAtDay;
   private int costPerDay;
+  private boolean availableForLoan;
   private ArrayList<Contract> contracts;
 
-  public Item(String category, String name, String description, int createdAtDay, int costPerDay) {
+  public Item(String category, String name, String description, int createdAtDay, int costPerDay, boolean availableForLoan) {
     this.category = category;
     this.name = name;
     this.description = description;
     this.createdAtDay = createdAtDay;
     this.costPerDay = costPerDay;
+    this.availableForLoan = availableForLoan;
     this.contracts = new ArrayList<Contract>();
+  }
+
+  public boolean getAvailableForLoan() {
+    return availableForLoan;
+  }
+
+  public void makeItemAvailable() {
+    this.availableForLoan = true;
+  }
+
+  public void makeItemUnavailable() {
+    this.availableForLoan = false;
   }
 
   public ArrayList<Contract> getContracts() {

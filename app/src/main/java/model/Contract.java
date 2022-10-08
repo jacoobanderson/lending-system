@@ -4,11 +4,37 @@ public class Contract {
   private Item item;
   private int startDay;
   private int endDay;
+  private String ownerEmail;
+  private String lenderEmail;
     
-  public Contract(Item item, int startDay, int endDay) {
+  public Contract(Item item, int startDay, int endDay, String ownerEmail, String lenderEmail) {
     this.item = item;
     this.startDay = startDay;
     this.endDay = endDay;
+    this.ownerEmail = ownerEmail;
+    this.lenderEmail = lenderEmail;
+  }
+
+  public String getLenderEmail() {
+      return lenderEmail;
+  }
+
+  public void setLenderEmail(String lenderEmail) {
+      this.lenderEmail = lenderEmail;
+  }
+
+  public String getOwnerEmail() {
+      return ownerEmail;
+  }
+
+  public void setOwnerEmail(String ownerEmail) {
+      this.ownerEmail = ownerEmail;
+  }
+
+  public int getTotalCost() {
+    int amountOfDays = endDay - startDay + 1;
+    int cost = item.getCostPerDay() * amountOfDays;
+    return cost;
   }
 
   public int getEndDay() {
@@ -34,19 +60,4 @@ public class Contract {
   public void setStartDay(int startDay) {
       this.startDay = startDay;
   }
-  // public void lendItem() {
-  //   lenderOfItem.addItem(this.item);
-  //   ownerOfItem.deleteItem(this.item);
-  // }
-
-  // public void returnItem() {
-  //   ownerOfItem.addItem(this.item);
-  //   lenderOfItem.deleteItem(this.item);
-  // }
-
-  // public void transferCredits() {
-  //   int credits = item.getCostPerDay();
-  //   ownerOfItem.addCredits(credits);
-  //   lenderOfItem.subtractCredits(credits);
-  // }
 }

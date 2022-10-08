@@ -9,10 +9,23 @@ import view.ItemView;
 public class ItemController {
   private ItemView view;
   private MemberRegister memberRegister;
+  private int day = 1;
 
   public ItemController(ItemView view, MemberRegister memberRegister) {
     this.view = view;
     this.memberRegister = memberRegister;
+  }
+
+  public int getDay() {
+      return day;
+  }
+
+  public void setDay(int day) {
+      this.day = day;
+  }
+
+  public void advanceDay() {
+    this.day += 1;
   }
    
   public void changeCategory(Item item) {
@@ -42,24 +55,25 @@ public class ItemController {
     int startDay = view.contractStartDayQuestion();
     int endDay = view.contractEndDayQuestion();
 
-    Contract contract = new Contract(item, startDay, endDay);
+    Contract contract = new Contract(item, startDay, endDay, ownerOfItem.getEmail(), lenderOfItemEmail);
+    transferCredits(lenderOfItem, ownerOfItem, contract.getTotalCost());
+    item.addContract(contract);
+
+    if (getDay() == startDay) {
+      lendItem(item);
+    }
   }
 
-  public void lendItem(Member lenderOfItem, Member ownerOfItem, Item item) {
-    lenderOfItem.addItem(item);
-    ownerOfItem.deleteItem(item);
+  public void lendItem(Item item) {
+    item.makeItemUnavailable();
   }
 
-  public void returnItem(Member lenderOfItem, Member ownerOfItem, Item item) {
-    ownerOfItem.addItem(item);
-    lenderOfItem.deleteItem(item);
+  public void returnItem(Item item) {
+    item.makeItemAvailable();
   }
 
-  public void transferCredits(Member lenderOfItem, Member ownerOfItem, Item item) {
-    int credits = item.getCostPerDay();
+  public void transferCredits(Member lenderOfItem, Member ownerOfItem, int credits) {
     ownerOfItem.addCredits(credits);
     lenderOfItem.subtractCredits(credits);
   }
-
-
 }
