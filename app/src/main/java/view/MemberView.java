@@ -44,12 +44,14 @@ public class MemberView {
   }
 
   // Add more contract to who etc...
-  public void printMemberItemVerbose(String category, String name, String description, int cost, String currentlyLentTo) {
+  public void printMemberItemVerbose(String category, String name, String description, int cost, String currentlyLentTo, int startDay, int endDay) {
     System.out.println("Category: " + category);
     System.out.println("Name: " + name);
     System.out.println("Description: " + description);
     System.out.println("Cost per day: " + cost);
-    System.out.println("Currently lent to: " + currentlyLentTo + "\n");
+    System.out.println("Currently lent to: " + currentlyLentTo);
+    System.out.println("Lent from day: " + startDay);
+    System.out.println("Lent to day: " + endDay + "\n");
   }
 
   public String changeFirstNameQuestion() {

@@ -68,19 +68,23 @@ public class ItemController {
       item.addContract(contract);
 
       if (getDay() == startDay) {
-        lendItem(item, lenderOfItemEmail);
+        lendItem(item, lenderOfItemEmail, startDay, endDay);
       }
     }
   }
 
-  public void lendItem(Item item, String lenderOfItemEmail) {
+  public void lendItem(Item item, String lenderOfItemEmail, int currentContractStartDay, int currentContractEndDay) {
     item.makeItemUnavailable();
     item.setCurrentlyLentTo(lenderOfItemEmail);
+    item.setCurrentContractStartDay(currentContractStartDay);
+    item.setCurrentContractEndDay(currentContractEndDay);
   }
 
   public void returnItem(Item item) {
     item.makeItemAvailable();
     item.setCurrentlyLentTo(null);
+    item.setCurrentContractStartDay(0);
+    item.setCurrentContractEndDay(0);
   }
 
   public void transferCredits(Member lenderOfItem, Member ownerOfItem, int credits) {

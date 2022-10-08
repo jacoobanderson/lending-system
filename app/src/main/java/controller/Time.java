@@ -42,7 +42,7 @@ public class Time {
         for (Item item : member.getItems()) {
           for (Contract contract : item.getContracts()) {
             if (contract.getStartDay() == this.day) {
-              itemController.lendItem(item, contract.getLenderEmail());
+              itemController.lendItem(item, contract.getLenderEmail(), contract.getStartDay(), contract.getEndDay());
             }
             if (contract.getEndDay() == this.day) {
               itemController.returnItem(item);

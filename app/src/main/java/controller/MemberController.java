@@ -41,7 +41,7 @@ public class MemberController {
 
   public void showItems(Member member) {
     for (Item item : member.getItems()) {
-      view.printMemberItemVerbose(item.getCategory(), item.getName(), item.getDescription(), item.getCostPerDay(), item.getCurrentlyLentTo());
+      view.printMemberItemVerbose(item.getCategory(), item.getName(), item.getDescription(), item.getCostPerDay(), item.getCurrentlyLentTo(), item.getCurrentContractStartDay(), item.getCurrentContractEndDay());
     }
   }
 
@@ -66,7 +66,7 @@ public class MemberController {
     for (Item item : items) {
       if (item.getAvailableForLoan()) {
         view.printItemNumber((index++));
-        view.printMemberItemVerbose(item.getCategory(), item.getName(), item.getDescription(), item.getCostPerDay(), item.getCurrentlyLentTo());
+        view.printMemberItemVerbose(item.getCategory(), item.getName(), item.getDescription(), item.getCostPerDay(), item.getCurrentlyLentTo(), item.getCurrentContractStartDay(), item.getCurrentContractEndDay());
       }
     }
     int answer = view.selectItemQuestion();

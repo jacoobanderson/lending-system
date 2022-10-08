@@ -11,6 +11,8 @@ public class Item {
   private boolean availableForLoan;
   private ArrayList<Contract> contracts;
   private String currentlyLentTo;
+  private int currentContractStartDay;
+  private int currentContractEndDay;
 
   public Item(String category, String name, String description, int createdAtDay, int costPerDay, boolean availableForLoan) {
     this.category = category;
@@ -26,8 +28,24 @@ public class Item {
     return availableForLoan;
   }
 
+  public int getCurrentContractEndDay() {
+    return currentContractEndDay;
+  }
+
+  public void setCurrentContractEndDay(int currentContractEndDay) {
+    this.currentContractEndDay = currentContractEndDay;
+  }
+
+  public void setCurrentContractStartDay(int currentContractStartDay) {
+    this.currentContractStartDay = currentContractStartDay;
+  }
+
+  public int getCurrentContractStartDay() {
+    return currentContractStartDay;
+  }
+
   public void setCurrentlyLentTo(String currentlyLentTo) {
-      this.currentlyLentTo = currentlyLentTo;
+    this.currentlyLentTo = currentlyLentTo;
   }
 
   public String getCurrentlyLentTo() {
