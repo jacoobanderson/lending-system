@@ -3,11 +3,14 @@ package model;
 import java.util.ArrayList;
 import java.util.Random;
 
+import model.Persistance.Data;
+
 public class MemberRegister {
   private ArrayList<Member> members;
 
   public MemberRegister() {
     this.members = new ArrayList<Member>();
+    new Data().load(this);
   }
 
   public boolean isUnique(String email, String phoneNumber, String id) {
@@ -37,6 +40,10 @@ public class MemberRegister {
       Member member = new Member(firstName, lastName, email, phoneNumber, createdAtDay, id);
       this.members.add(member);
     }
+  }
+
+  public void addMember(Member member) {
+    this.members.add(member);
   }
 
   public void deleteMember(Member member) {
