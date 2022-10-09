@@ -1,5 +1,6 @@
 package controller;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import model.Contract;
 import model.Item;
 import model.Member;
@@ -18,12 +19,13 @@ public class Time {
   /**
    * The constructor.
    *
-   * @param day The day.
-   * @param memberRegister The member register.
-   * @param itemController The item controller.
-   * @param memberController The member controller.
+   * @param day                      The day.
+   * @param memberRegister           The member register.
+   * @param itemController           The item controller.
+   * @param memberController         The member controller.
    * @param memberRegisterController The member register controller.
    */
+  @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Time needs to use each controller.")
   public Time(int day, MemberRegister memberRegister, ItemController itemController, MemberController memberController,
       MemberRegisterController memberRegisterController) {
     this.day = day;
@@ -52,7 +54,8 @@ public class Time {
   }
 
   /**
-   * Advances a day, sets the day of the controllers and calls the handle day change.
+   * Advances a day, sets the day of the controllers and calls the handle day
+   * change.
    */
   public void advanceDay() {
     advanceAmountOfDays(1);

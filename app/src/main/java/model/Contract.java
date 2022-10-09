@@ -9,18 +9,19 @@ public class Contract {
   private int endDay;
   private String ownerEmail;
   private String lenderEmail;
-    
+
   /**
    * The constructor.
    *
-   * @param item The item.
-   * @param startDay The start day of the contract.
-   * @param endDay The end day of the contract.
-   * @param ownerEmail The email of the owner of the item.
+   * @param item        The item.
+   * @param startDay    The start day of the contract.
+   * @param endDay      The end day of the contract.
+   * @param ownerEmail  The email of the owner of the item.
    * @param lenderEmail The email of the lender.
    */
   public Contract(Item item, int startDay, int endDay, String ownerEmail, String lenderEmail) {
-    this.item = item;
+    this.item = new Item(item.getCategory(), item.getName(), item.getDescription(), item.getCreatedAtDay(),
+        item.getCostPerDay(), item.getAvailableForLoan());
     this.startDay = startDay;
     this.endDay = endDay;
     this.ownerEmail = ownerEmail;
@@ -93,21 +94,13 @@ public class Contract {
   }
 
   /**
-   * Gets the item.
-   *
-   * @return The item.
-   */
-  public Item getItem() {
-    return item;
-  }
-
-  /**
    * Sets the item.
    *
    * @param item The item.
    */
-  public void setItem(Item item) {
-    this.item = item;
+  protected void setItem(Item item) {
+    this.item = new Item(item.getCategory(), item.getName(), item.getDescription(), item.getCreatedAtDay(),
+        item.getCostPerDay(), item.getAvailableForLoan());
   }
 
   /**

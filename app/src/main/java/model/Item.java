@@ -1,6 +1,8 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * The type item.
@@ -138,8 +140,9 @@ public class Item {
    *
    * @return The contracts.
    */
-  public ArrayList<Contract> getContracts() {
-    return contracts;
+  public List<Contract> getContracts() {
+    List<Contract> unmodifiableList = Collections.unmodifiableList(contracts);
+    return unmodifiableList;
   }
 
   /**

@@ -1,6 +1,8 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 import model.persistance.Data;
 
@@ -9,12 +11,14 @@ import model.persistance.Data;
  */
 public class MemberRegister {
   private ArrayList<Member> members;
+  private Random random;
 
   /**
    * The constructor.
    */
   public MemberRegister() {
     this.members = new ArrayList<Member>();
+    this.random = new Random();
     new Data().load(this);
   }
 
@@ -48,8 +52,9 @@ public class MemberRegister {
    *
    * @return The members.
    */
-  public ArrayList<Member> getMembers() {
-    return members;
+  public List<Member> getMembers() {
+    List<Member> unmodifiableList = Collections.unmodifiableList(members);
+    return unmodifiableList;
   }
 
   /**
@@ -123,7 +128,6 @@ public class MemberRegister {
    * @return The id.
    */
   private String generateId() {
-    Random random = new Random();
     String upperCaseletters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     String lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
     String numbers = "0123456789";

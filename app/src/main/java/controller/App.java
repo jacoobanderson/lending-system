@@ -12,11 +12,11 @@ import view.RegisterView;
 public class App {
   /**
    * Application starting point.
-
+   *
    * @param args command line arguments.
    */
   public static void main(String[] args) {
-   
+
     ConsoleUi view = new ConsoleUi();
 
     MemberView memberView = new MemberView();

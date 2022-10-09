@@ -1,6 +1,8 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * The type member.
@@ -185,8 +187,9 @@ public class Member {
    *
    * @return The items.
    */
-  public ArrayList<Item> getItems() {
-    return this.itemList;
+  public List<Item> getItems() {
+    List<Item> unmodifiableList = Collections.unmodifiableList(itemList);
+    return unmodifiableList;
   }
 
   /**
@@ -226,3 +229,5 @@ public class Member {
     return false;
   }
 }
+
+

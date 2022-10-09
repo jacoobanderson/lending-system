@@ -1,5 +1,6 @@
 package controller;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import model.Member;
 import model.MemberRegister;
 import view.RegisterView;
@@ -20,6 +21,7 @@ public class MemberRegisterController {
    * @param view             The Register view.
    * @param memberController The member controller.
    */
+  @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Main controller needs access")
   public MemberRegisterController(MemberRegister register, RegisterView view, MemberController memberController) {
     this.register = register;
     this.view = view;

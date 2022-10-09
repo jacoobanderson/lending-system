@@ -1,6 +1,6 @@
 package controller;
 
-import java.util.ArrayList;
+import java.util.List;
 import model.Item;
 import model.Member;
 import view.MemberView;
@@ -118,7 +118,7 @@ public class MemberController {
    */
   public Item selectItem(Member member) {
     int index = 1;
-    ArrayList<Item> items = member.getItems();
+    List<Item> items = member.getItems();
     for (Item item : items) {
       if (item.getAvailableForLoan()) {
         view.printItemNumber((index++));

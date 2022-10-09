@@ -1,5 +1,6 @@
 package controller;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import model.Item;
 import model.Member;
 import view.ConsoleUi;
@@ -23,7 +24,8 @@ public class MainController {
    * @param itemController     The item controller.
    * @param time               The item.
    */
-  public MainController(ConsoleUi view, MemberRegisterController registerController, 
+  @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Main controller needs access.")
+  public MainController(ConsoleUi view, MemberRegisterController registerController,
       MemberController memberController,
       ItemController itemController, Time time) {
     this.view = view;

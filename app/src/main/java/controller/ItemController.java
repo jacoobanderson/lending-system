@@ -1,5 +1,6 @@
 package controller;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import model.Contract;
 import model.Item;
 import model.Member;
@@ -17,9 +18,10 @@ public class ItemController {
   /**
    * The constructor.
    *
-   * @param view The item view.
+   * @param view           The item view.
    * @param memberRegister The member register.
    */
+  @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Controller needs access to model")
   public ItemController(ItemView view, MemberRegister memberRegister) {
     this.view = view;
     this.memberRegister = memberRegister;
@@ -104,7 +106,7 @@ public class ItemController {
   /**
    * Establishes a contract.
    *
-   * @param item The item that is to be in the contract.
+   * @param item        The item that is to be in the contract.
    * @param ownerOfItem The owner of the item.
    */
   public void establishContract(Item item, Member ownerOfItem) {
@@ -129,10 +131,10 @@ public class ItemController {
   /**
    * Lends an item, makes it unavailable and sets information.
    *
-   * @param item The item.
-   * @param lenderOfItemEmail The lender email.
+   * @param item                    The item.
+   * @param lenderOfItemEmail       The lender email.
    * @param currentContractStartDay The start day of the contract.
-   * @param currentContractEndDay The end day of the contract.
+   * @param currentContractEndDay   The end day of the contract.
    */
   public void lendItem(Item item, String lenderOfItemEmail, int currentContractStartDay, int currentContractEndDay) {
     item.makeItemUnavailable();
@@ -157,8 +159,8 @@ public class ItemController {
    * Transfers the credits.
    *
    * @param lenderOfItem The lender of the item.
-   * @param ownerOfItem The owner of the item.
-   * @param credits The amount of credits.
+   * @param ownerOfItem  The owner of the item.
+   * @param credits      The amount of credits.
    */
   public void transferCredits(Member lenderOfItem, Member ownerOfItem, int credits) {
     ownerOfItem.addCredits(credits);
