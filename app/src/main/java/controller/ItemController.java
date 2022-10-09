@@ -163,7 +163,6 @@ public class ItemController {
    * @param credits      The amount of credits.
    */
   public void transferCredits(Member lenderOfItem, Member ownerOfItem, int credits) {
-    ownerOfItem.addCredits(credits);
-    lenderOfItem.subtractCredits(credits);
+    lenderOfItem.transferCredits(ownerOfItem, credits);
   }
 }

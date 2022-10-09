@@ -20,10 +20,10 @@ public class Member {
   /**
    * Instantiates a new member.
    *
-   * @param firstName     The first firstName.
-   * @param lastName The last firstName.
-   * @param email         The email.
-   * @param phoneNumber   The phone number.
+   * @param firstName   The first firstName.
+   * @param lastName    The last firstName.
+   * @param email       The email.
+   * @param phoneNumber The phone number.
    */
   public Member(String firstName, String lastName, String email, String phoneNumber, int createdAtDay,
       String uniqueId) {
@@ -161,11 +161,11 @@ public class Member {
   /**
    * Creates an item.
    *
-   * @param category The category.
-   * @param name The name.
-   * @param description The description.
+   * @param category     The category.
+   * @param name         The name.
+   * @param description  The description.
    * @param createdAtDay The creation day.
-   * @param costPerDay The cost per day.
+   * @param costPerDay   The cost per day.
    */
   public void createItem(String category, String name, String description, int createdAtDay, int costPerDay) {
     Item item = new Item(category, name, description, createdAtDay, costPerDay, true);
@@ -228,6 +228,17 @@ public class Member {
     }
     return false;
   }
+
+  /**
+   * Transfers the credits.
+   *
+   * @param ownerOfItem The owner of the item.
+   * @param credits     The amount of credits.
+   */
+  public void transferCredits(Member ownerOfItem, int credits) {
+    if (hasEnoughCredits(credits)) {
+      ownerOfItem.addCredits(credits);
+      subtractCredits(credits);
+    }
+  }
 }
-
-
