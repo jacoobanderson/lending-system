@@ -42,3 +42,7 @@ Adhere to the instructions according to the assigment.
 
 ## Handing In
 Adhere to the instructions according to the assigment.
+
+
+## Applicatio instructions (How to use)
+You are initially faced with a main menu where you can Create a member, show the members, advance a day and select a member. If you select a member you do so with the member email. At that point you get to the member menu where you can choose to show the member information, change the member's information, create an item, contract etc. When you select an item you do so with the number of that item (Index + 1), this is also where you can see all the member's items. If you select an item you can view the contracts of that item aswell as change information and delete the item. If you create a new contract you specify the item, start day and end day, then the funds are transfered if there are enough when you advance the day to the start day the it will show (show verbose) the start day end day and to whom the item is lended to. At the end day it will become available and the contract information will no longer show.
