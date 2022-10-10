@@ -20,3 +20,6 @@ Please provide at least one sequence diagram according to the assignment requirm
 
 The mermaid version of sequence diagram creation is not optimal and i couldnt get correct naming etc.
 
+
+## Object Diagram
+![object diagram](img/object_diagram.png)
