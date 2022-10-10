@@ -74,7 +74,7 @@ public class ConsoleUi {
    *
    * @return The input
    */
-  public MainMenuEvent getMainMenuInput() {
+  private MainMenuEvent getMainMenuInput() {
     switch (scan.nextInt()) {
       case 1:
         return MainMenuEvent.CREATE_MEMBER;
@@ -96,7 +96,7 @@ public class ConsoleUi {
    *
    * @return The input.
    */
-  public SpecificMemberEvent getSpecificMemberMenuInput() {
+  private SpecificMemberEvent getSpecificMemberMenuInput() {
     switch (scan.nextInt()) {
       case 1:
         return SpecificMemberEvent.SHOW_INFORMATION;
@@ -120,7 +120,7 @@ public class ConsoleUi {
    *
    * @return The input.
    */
-  public SpecificItemEvent getSpecificItemMenuInput() {
+  private SpecificItemEvent getSpecificItemMenuInput() {
     switch (scan.nextInt()) {
       case 1:
         return SpecificItemEvent.CHANGE_NAME;
@@ -157,7 +157,7 @@ public class ConsoleUi {
    *
    * @return The input.
    */
-  public ChangeInformationEvent getChangeInformationInput() {
+  private ChangeInformationEvent getChangeInformationInput() {
     switch (scan.nextInt()) {
       case 1:
         return ChangeInformationEvent.CHANGE_FIRST_NAME;
