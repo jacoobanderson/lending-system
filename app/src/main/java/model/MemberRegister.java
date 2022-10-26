@@ -67,7 +67,11 @@ public class MemberRegister {
    * @param createdAtDay The day the member was created.
    */
   public void createMember(String firstName, String lastName, String email, String phoneNumber, int createdAtDay) {
-    String id = generateId();
+    String id;
+    do {
+      id = generateId();
+    } while (!isUnique(email, phoneNumber, id));
+    
     if (isUnique(email, phoneNumber, id)) {
       Member member = new Member(firstName, lastName, email, phoneNumber, createdAtDay, id);
       this.members.add(member);
