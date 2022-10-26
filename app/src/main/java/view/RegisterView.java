@@ -89,7 +89,8 @@ public class RegisterView {
    * @param email The email.
    * @param credits The credits.
    */
-  public void printMemberVerbose(String firstName, String lastName, String email, int credits) {
+  public void printMemberVerbose(String firstName, String lastName, String email, int credits, String id) {
+    System.out.println("ID: " + id);
     System.out.println("Name: " + firstName + " " + lastName);
     System.out.println("Email: " + email);
     System.out.println("Credits: " + credits);

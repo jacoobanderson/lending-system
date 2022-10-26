@@ -79,7 +79,8 @@ public class MemberRegisterController {
    */
   public void showMembersVerbose() {
     for (Member member : register.getMembers()) {
-      view.printMemberVerbose(member.getFirstName(), member.getLastName(), member.getEmail(), member.getCredits());
+      view.printMemberVerbose(member.getFirstName(), member.getLastName(), member.getEmail(), member.getCredits(),
+          member.getUniqueId());
       memberController.showItems(member);
     }
   }
