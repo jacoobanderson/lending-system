@@ -75,19 +75,23 @@ public class ConsoleUi {
    * @return The input
    */
   private MainMenuEvent getMainMenuInput() {
-    switch (scan.nextInt()) {
-      case 1:
-        return MainMenuEvent.CREATE_MEMBER;
-      case 2:
-        return MainMenuEvent.SELECT_SPECIFIC_MEMBER;
-      case 3:
-        return MainMenuEvent.SHOW_SIMPLE_WAY;
-      case 4:
-        return MainMenuEvent.SHOW_VERBOSE_WAY;
-      case 5:
-        return MainMenuEvent.ADVANCE_ONE_DAY;
-      default:
-        return MainMenuEvent.QUIT;
+    try {
+      switch (scan.nextInt()) {
+        case 1:
+          return MainMenuEvent.CREATE_MEMBER;
+        case 2:
+          return MainMenuEvent.SELECT_SPECIFIC_MEMBER;
+        case 3:
+          return MainMenuEvent.SHOW_SIMPLE_WAY;
+        case 4:
+          return MainMenuEvent.SHOW_VERBOSE_WAY;
+        case 5:
+          return MainMenuEvent.ADVANCE_ONE_DAY;
+        default:
+          return MainMenuEvent.QUIT;
+      }
+    } catch (Exception e) {
+      return MainMenuEvent.QUIT;
     }
   }
 
@@ -97,21 +101,25 @@ public class ConsoleUi {
    * @return The input.
    */
   private SpecificMemberEvent getSpecificMemberMenuInput() {
-    switch (scan.nextInt()) {
-      case 1:
-        return SpecificMemberEvent.SHOW_INFORMATION;
-      case 2:
-        return SpecificMemberEvent.CHANGE_INFORMATION;
-      case 3:
-        return SpecificMemberEvent.CREATE_ITEM;
-      case 4:
-        return SpecificMemberEvent.SELECT_ITEM;
-      case 5:
-        return SpecificMemberEvent.CREATE_CONTRACT;
-      case 6:
-        return SpecificMemberEvent.DELETE_MEMBER;
-      default:
-        return SpecificMemberEvent.BACK;
+    try {
+      switch (scan.nextInt()) {
+        case 1:
+          return SpecificMemberEvent.SHOW_INFORMATION;
+        case 2:
+          return SpecificMemberEvent.CHANGE_INFORMATION;
+        case 3:
+          return SpecificMemberEvent.CREATE_ITEM;
+        case 4:
+          return SpecificMemberEvent.SELECT_ITEM;
+        case 5:
+          return SpecificMemberEvent.CREATE_CONTRACT;
+        case 6:
+          return SpecificMemberEvent.DELETE_MEMBER;
+        default:
+          return SpecificMemberEvent.BACK;
+      }
+    } catch (Exception e) {
+      return SpecificMemberEvent.BACK;
     }
   }
 
@@ -121,21 +129,25 @@ public class ConsoleUi {
    * @return The input.
    */
   private SpecificItemEvent getSpecificItemMenuInput() {
-    switch (scan.nextInt()) {
-      case 1:
-        return SpecificItemEvent.CHANGE_NAME;
-      case 2:
-        return SpecificItemEvent.CHANGE_CATEGORY;
-      case 3:
-        return SpecificItemEvent.CHANGE_DESCRIPTION;
-      case 4:
-        return SpecificItemEvent.CHANGE_COST;
-      case 5:
-        return SpecificItemEvent.VIEW_CONTRACTS;
-      case 6:
-        return SpecificItemEvent.DELETE_ITEM;
-      default:
-        return SpecificItemEvent.BACK;
+    try {
+      switch (scan.nextInt()) {
+        case 1:
+          return SpecificItemEvent.CHANGE_NAME;
+        case 2:
+          return SpecificItemEvent.CHANGE_CATEGORY;
+        case 3:
+          return SpecificItemEvent.CHANGE_DESCRIPTION;
+        case 4:
+          return SpecificItemEvent.CHANGE_COST;
+        case 5:
+          return SpecificItemEvent.VIEW_CONTRACTS;
+        case 6:
+          return SpecificItemEvent.DELETE_ITEM;
+        default:
+          return SpecificItemEvent.BACK;
+      }
+    } catch (Exception e) {
+      return SpecificItemEvent.BACK;
     }
   }
 
@@ -158,15 +170,19 @@ public class ConsoleUi {
    * @return The input.
    */
   private ChangeInformationEvent getChangeInformationInput() {
-    switch (scan.nextInt()) {
-      case 1:
-        return ChangeInformationEvent.CHANGE_FIRST_NAME;
-      case 2:
-        return ChangeInformationEvent.CHANGE_LAST_NAME;
-      case 3:
-        return ChangeInformationEvent.CHANGE_EMAIL;
-      default:
-        return ChangeInformationEvent.BACK;
+    try {
+      switch (scan.nextInt()) {
+        case 1:
+          return ChangeInformationEvent.CHANGE_FIRST_NAME;
+        case 2:
+          return ChangeInformationEvent.CHANGE_LAST_NAME;
+        case 3:
+          return ChangeInformationEvent.CHANGE_EMAIL;
+        default:
+          return ChangeInformationEvent.BACK;
+      }
+    } catch (Exception e) {
+      return ChangeInformationEvent.BACK;
     }
   }
 
