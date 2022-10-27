@@ -3,6 +3,7 @@ package controller;
 import java.util.List;
 import model.Item;
 import model.Member;
+import model.MemberRegister;
 import view.MemberView;
 
 /**
@@ -10,6 +11,7 @@ import view.MemberView;
  */
 public class MemberController {
   private MemberView view;
+  private MemberRegister memberRegister;
   private int day = 1;
 
   /**
@@ -17,8 +19,9 @@ public class MemberController {
    *
    * @param view The member view.
    */
-  public MemberController(MemberView view) {
+  public MemberController(MemberView view, MemberRegister memberRegister) {
     this.view = view;
+    this.memberRegister = memberRegister;
   }
 
   /**
@@ -106,7 +109,11 @@ public class MemberController {
    * Show email view and change email.
    */
   public void changeEmail(Member member) {
-    String email = view.changeEmailQuestion();
+    String email;
+    do {
+      email = view.changeEmailQuestion();
+    } while (!memberRegister.emailIsUnique(email));
+
     member.setEmail(email);
   }
 

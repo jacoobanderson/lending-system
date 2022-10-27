@@ -23,23 +23,49 @@ public class MemberRegister {
   }
 
   /**
-   * Checks if unique. 
+   * Checks if email is unique. 
    *
    * @param email The email.
-   * @param phoneNumber The phone number.
-   * @param id The id.
    * @return If it is unique.
    */
-  public boolean isUnique(String email, String phoneNumber, String id) {
+  public boolean emailIsUnique(String email) {
     boolean isUnique = true;
 
     for (Member member : members) {
       if (member.getEmail().equals(email)) {
         isUnique = false;
       }
+    }
+    return isUnique;
+  }
+
+  /**
+   * Checks if phone number is unique. 
+   *
+   * @param phoneNumber The phone number.
+   * @return If it is unique.
+   */
+  public boolean phoneNumberIsUnique(String phoneNumber) {
+    boolean isUnique = true;
+
+    for (Member member : members) {
       if (member.getPhoneNumber().equals(phoneNumber)) {
         isUnique = false;
       }
+    }
+    return isUnique;
+  }
+
+  /**
+   * Checks if id is unique. 
+   *
+   * @param id The id.
+   * @return If it is unique.
+   */
+  public boolean IdIsUnique(String id) {
+    boolean isUnique = true;
+
+    for (Member member : members) {
       if (member.getUniqueId().equals(id)) {
         isUnique = false;
       }
@@ -70,9 +96,9 @@ public class MemberRegister {
     String id;
     do {
       id = generateId();
-    } while (!isUnique(email, phoneNumber, id));
-    
-    if (isUnique(email, phoneNumber, id)) {
+    } while (!IdIsUnique(id));
+
+    if (emailIsUnique(email) && phoneNumberIsUnique(phoneNumber)) {
       Member member = new Member(firstName, lastName, email, phoneNumber, createdAtDay, id);
       this.members.add(member);
     }

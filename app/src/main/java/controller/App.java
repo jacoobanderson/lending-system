@@ -20,12 +20,12 @@ public class App {
     ConsoleUi view = new ConsoleUi();
 
     MemberView memberView = new MemberView();
-    MemberController memberController = new MemberController(memberView);
+    MemberRegister memberRegister = new MemberRegister();
+    MemberController memberController = new MemberController(memberView, memberRegister);
 
     RegisterView registerView = new RegisterView();
 
     ItemView itemView = new ItemView();
-    MemberRegister memberRegister = new MemberRegister();
     ItemController itemController = new ItemController(itemView, memberRegister);
     MemberRegisterController register = new MemberRegisterController(memberRegister, registerView, memberController);
     Time time = new Time(0, memberRegister, itemController, memberController, register);
