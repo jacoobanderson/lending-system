@@ -1,5 +1,6 @@
 package controller;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.List;
 import model.Item;
 import model.Member;
@@ -19,6 +20,7 @@ public class MemberController {
    *
    * @param view The member view.
    */
+  @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Member controller needs access.")
   public MemberController(MemberView view, MemberRegister memberRegister) {
     this.view = view;
     this.memberRegister = memberRegister;

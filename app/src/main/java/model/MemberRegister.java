@@ -62,7 +62,7 @@ public class MemberRegister {
    * @param id The id.
    * @return If it is unique.
    */
-  public boolean IdIsUnique(String id) {
+  public boolean idIsUnique(String id) {
     boolean isUnique = true;
 
     for (Member member : members) {
@@ -96,7 +96,7 @@ public class MemberRegister {
     String id;
     do {
       id = generateId();
-    } while (!IdIsUnique(id));
+    } while (!idIsUnique(id));
 
     if (emailIsUnique(email) && phoneNumberIsUnique(phoneNumber)) {
       Member member = new Member(firstName, lastName, email, phoneNumber, createdAtDay, id);
