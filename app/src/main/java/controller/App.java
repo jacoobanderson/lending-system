@@ -22,14 +22,15 @@ public class App {
 
     MemberView memberView = new MemberView();
     MemberRegister memberRegister = new MemberRegister();
-    MemberController memberController = new MemberController(memberView, memberRegister);
+    Time time = new Time(0, memberRegister);
 
+    MemberController memberController = new MemberController(memberView, memberRegister, time);
     RegisterView registerView = new RegisterView();
 
     ItemView itemView = new ItemView();
-    ItemController itemController = new ItemController(itemView, memberRegister);
-    MemberRegisterController register = new MemberRegisterController(memberRegister, registerView, memberController);
-    Time time = new Time(0, memberRegister);
+    ItemController itemController = new ItemController(itemView, memberRegister, time);
+    MemberRegisterController register = new MemberRegisterController(memberRegister, registerView, memberController,
+        time);
 
     MainController mainController = new MainController(view, register, memberController, itemController, time);
     mainController.start();

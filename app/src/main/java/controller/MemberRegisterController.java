@@ -3,6 +3,7 @@ package controller;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import model.Member;
 import model.MemberRegister;
+import model.Time;
 import view.RegisterView;
 
 /**
@@ -12,7 +13,7 @@ public class MemberRegisterController {
   private MemberRegister register;
   private RegisterView view;
   private MemberController memberController;
-  private int day = 1;
+  private Time time;
 
   /**
    * The constructor.
@@ -22,35 +23,12 @@ public class MemberRegisterController {
    * @param memberController The member controller.
    */
   @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Main controller needs access")
-  public MemberRegisterController(MemberRegister register, RegisterView view, MemberController memberController) {
+  public MemberRegisterController(MemberRegister register, RegisterView view, MemberController memberController,
+      Time time) {
     this.register = register;
     this.view = view;
     this.memberController = memberController;
-  }
-
-  /**
-   * Gets the day.
-   *
-   * @return The day.
-   */
-  public int getDay() {
-    return day;
-  }
-
-  /**
-   * Sets the day.
-   *
-   * @param day The day.
-   */
-  public void setDay(int day) {
-    this.day = day;
-  }
-
-  /**
-   * Advances a day.
-   */
-  public void advanceDay() {
-    this.day += 1;
+    this.time = time;
   }
 
   /**
@@ -61,7 +39,7 @@ public class MemberRegisterController {
     String lastName = view.showLastNameQuestion();
     String email = view.showEmailQuestion();
     String phoneNumber = view.showPhoneNumberQuestion();
-    register.createMember(firstName, lastName, email, phoneNumber, getDay());
+    register.createMember(firstName, lastName, email, phoneNumber, time.getDay());
   }
 
   /**

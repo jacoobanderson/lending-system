@@ -71,9 +71,6 @@ public class MainController {
         break;
       case ADVANCE_ONE_DAY:
         time.advanceDay();
-        registerController.advanceDay();
-        memberController.advanceDay();
-        itemController.advanceDay();
         createMainMenu();
         break;
       case QUIT:

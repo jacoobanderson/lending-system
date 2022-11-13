@@ -5,6 +5,7 @@ import java.util.List;
 import model.Item;
 import model.Member;
 import model.MemberRegister;
+import model.Time;
 import view.MemberView;
 
 /**
@@ -13,7 +14,7 @@ import view.MemberView;
 public class MemberController {
   private MemberView view;
   private MemberRegister memberRegister;
-  private int day = 1;
+  private Time time;
 
   /**
    * The constructor.
@@ -21,34 +22,10 @@ public class MemberController {
    * @param view The member view.
    */
   @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Member controller needs access.")
-  public MemberController(MemberView view, MemberRegister memberRegister) {
+  public MemberController(MemberView view, MemberRegister memberRegister, Time time) {
     this.view = view;
     this.memberRegister = memberRegister;
-  }
-
-  /**
-   * Gets the day.
-   *
-   * @return The day.
-   */
-  public int getDay() {
-    return day;
-  }
-
-  /**
-   * Sets the day.
-   *
-   * @param day The day.
-   */
-  public void setDay(int day) {
-    this.day = day;
-  }
-
-  /**
-   * Advances a day.
-   */
-  public void advanceDay() {
-    this.day += 1;
+    this.time = time;
   }
 
   /**
@@ -72,7 +49,7 @@ public class MemberController {
     String description = view.showItemDescriptionQuestion();
     int cost = view.showItemCostQuestion();
 
-    member.createItem(category, name, description, getDay(), cost);
+    member.createItem(category, name, description, time.getDay(), cost);
   }
 
   /**

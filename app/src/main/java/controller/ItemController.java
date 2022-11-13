@@ -5,6 +5,7 @@ import model.Contract;
 import model.Item;
 import model.Member;
 import model.MemberRegister;
+import model.Time;
 import view.ItemView;
 
 /**
@@ -13,7 +14,7 @@ import view.ItemView;
 public class ItemController {
   private ItemView view;
   private MemberRegister memberRegister;
-  private int day = 1;
+  private Time time;
 
   /**
    * The constructor.
@@ -22,34 +23,10 @@ public class ItemController {
    * @param memberRegister The member register.
    */
   @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Controller needs access to model")
-  public ItemController(ItemView view, MemberRegister memberRegister) {
+  public ItemController(ItemView view, MemberRegister memberRegister, Time time) {
     this.view = view;
     this.memberRegister = memberRegister;
-  }
-
-  /**
-   * Gets the day.
-   *
-   * @return The day.
-   */
-  public int getDay() {
-    return day;
-  }
-
-  /**
-   * Sets the day.
-   *
-   * @param day The day.
-   */
-  public void setDay(int day) {
-    this.day = day;
-  }
-
-  /**
-   * Advances a day.
-   */
-  public void advanceDay() {
-    this.day += 1;
+    this.time = time;
   }
 
   /**
@@ -122,7 +99,7 @@ public class ItemController {
       transferCredits(lenderOfItem, ownerOfItem, totalCost);
       item.addContract(contract);
 
-      if (getDay() == startDay) {
+      if (time.getDay() == startDay) {
         item.makeItemUnavailable();
         item.setCurrentlyLentTo(lenderOfItemEmail);
         item.setCurrentContractStartDay(startDay);
