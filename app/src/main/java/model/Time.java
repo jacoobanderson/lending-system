@@ -1,4 +1,4 @@
-package controller;
+package model;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import model.Contract;
@@ -12,27 +12,17 @@ import model.MemberRegister;
 public class Time {
   private int day;
   private MemberRegister memberRegister;
-  private ItemController itemController;
-  private MemberController memberController;
-  private MemberRegisterController memberRegisterController;
 
   /**
    * The constructor.
    *
    * @param day                      The day.
    * @param memberRegister           The member register.
-   * @param itemController           The item controller.
-   * @param memberController         The member controller.
-   * @param memberRegisterController The member register controller.
    */
   @SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "Time needs to use each controller.")
-  public Time(int day, MemberRegister memberRegister, ItemController itemController, MemberController memberController,
-      MemberRegisterController memberRegisterController) {
+  public Time(int day, MemberRegister memberRegister) {
     this.day = day;
     this.memberRegister = memberRegister;
-    this.itemController = itemController;
-    this.memberController = memberController;
-    this.memberRegisterController = memberRegisterController;
   }
 
   /**
@@ -59,9 +49,6 @@ public class Time {
    */
   public void advanceDay() {
     advanceAmountOfDays(1);
-    itemController.setDay(this.day);
-    memberController.setDay(this.day);
-    memberRegisterController.setDay(this.day);
     handleDayChange();
   }
 
@@ -73,10 +60,16 @@ public class Time {
       for (Item item : member.getItems()) {
         for (Contract contract : item.getContracts()) {
           if (contract.getStartDay() == this.day) {
-            itemController.lendItem(item, contract.getLenderEmail(), contract.getStartDay(), contract.getEndDay());
+            item.makeItemUnavailable();
+            item.setCurrentlyLentTo(contract.getLenderEmail());
+            item.setCurrentContractStartDay(contract.getStartDay());
+            item.setCurrentContractEndDay(contract.getEndDay());
           }
           if (contract.getEndDay() == this.day) {
-            itemController.returnItem(item);
+            item.makeItemAvailable();
+            item.setCurrentlyLentTo(null);
+            item.setCurrentContractStartDay(0);
+            item.setCurrentContractEndDay(0);
           }
         }
       }

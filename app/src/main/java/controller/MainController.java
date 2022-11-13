@@ -3,6 +3,7 @@ package controller;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import model.Item;
 import model.Member;
+import model.Time;
 import view.ConsoleUi;
 
 /**
@@ -70,6 +71,9 @@ public class MainController {
         break;
       case ADVANCE_ONE_DAY:
         time.advanceDay();
+        registerController.advanceDay();
+        memberController.advanceDay();
+        itemController.advanceDay();
         createMainMenu();
         break;
       case QUIT:

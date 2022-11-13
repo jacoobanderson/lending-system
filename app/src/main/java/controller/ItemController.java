@@ -123,36 +123,12 @@ public class ItemController {
       item.addContract(contract);
 
       if (getDay() == startDay) {
-        lendItem(item, lenderOfItemEmail, startDay, endDay);
+        item.makeItemUnavailable();
+        item.setCurrentlyLentTo(lenderOfItemEmail);
+        item.setCurrentContractStartDay(startDay);
+        item.setCurrentContractEndDay(endDay);
       }
     }
-  }
-
-  /**
-   * Lends an item, makes it unavailable and sets information.
-   *
-   * @param item                    The item.
-   * @param lenderOfItemEmail       The lender email.
-   * @param currentContractStartDay The start day of the contract.
-   * @param currentContractEndDay   The end day of the contract.
-   */
-  public void lendItem(Item item, String lenderOfItemEmail, int currentContractStartDay, int currentContractEndDay) {
-    item.makeItemUnavailable();
-    item.setCurrentlyLentTo(lenderOfItemEmail);
-    item.setCurrentContractStartDay(currentContractStartDay);
-    item.setCurrentContractEndDay(currentContractEndDay);
-  }
-
-  /**
-   * Returns the item, makes it available again and removes information.
-   *
-   * @param item The item.
-   */
-  public void returnItem(Item item) {
-    item.makeItemAvailable();
-    item.setCurrentlyLentTo(null);
-    item.setCurrentContractStartDay(0);
-    item.setCurrentContractEndDay(0);
   }
 
   /**

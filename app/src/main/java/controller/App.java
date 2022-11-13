@@ -1,6 +1,7 @@
 package controller;
 
 import model.MemberRegister;
+import model.Time;
 import view.ConsoleUi;
 import view.ItemView;
 import view.MemberView;
@@ -28,7 +29,7 @@ public class App {
     ItemView itemView = new ItemView();
     ItemController itemController = new ItemController(itemView, memberRegister);
     MemberRegisterController register = new MemberRegisterController(memberRegister, registerView, memberController);
-    Time time = new Time(0, memberRegister, itemController, memberController, register);
+    Time time = new Time(0, memberRegister);
 
     MainController mainController = new MainController(view, register, memberController, itemController, time);
     mainController.start();
